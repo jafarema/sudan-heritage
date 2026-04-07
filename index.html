@@ -3,1107 +3,1056 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Sudan Heritage — An immersive digital museum dedicated to 5,000 years of Sudanese and Nubian civilization"/>
+<meta name="description" content="Sudan Heritage — The world's most immersive digital museum. 5,000 years of Nubian and Sudanese civilization."/>
 <meta property="og:title" content="Sudan Heritage — Where Civilization Was Born"/>
-<meta property="og:description" content="5,000 years of Nubian and Sudanese civilization in the world's most beautiful digital museum"/>
-<title>Sudan Heritage — Where Civilization Was Born</title>
-
-<!-- FONTS: Best fonts for all languages -->
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg"/>
+<title>SUDAN HERITAGE — Where Civilization Was Born</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Serif+SC:wght@300;400;600&family=Noto+Serif+French+Creole&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Serif+SC:wght@300;400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
-/* ═══════════════════════════════════════════
-   DESIGN SYSTEM — SUDAN HERITAGE
-   The most beautiful museum on the internet
-═══════════════════════════════════════════ */
-:root {
-  /* Palette */
-  --ink:        #04040E;
-  --ink2:       #080818;
-  --ink3:       #0E0E28;
-  --gold:       #C9A84C;
-  --gold2:      #E8C96A;
-  --gold3:      #F5E090;
-  --gold-dim:   #7A5E20;
-  --copper:     #B87333;
-  --sand:       #E8C89A;
-  --sand2:      #F0DDB8;
-  --ivory:      #FAF6EC;
-  --crimson:    #8B1A1A;
-  --lapis:      #1A3A6B;
-  --nile:       #1A4A6B;
-  --emerald:    #1A5C3A;
-  --white:      #FFFFFF;
+/* ══════════════════════════════════════════════════
+   SUDAN HERITAGE — ULTIMATE EDITION
+   Inspired by: Lusion, Zentry, Active Theory, Obys,
+   KPR, Persepolis Reimagined, Star Atlas, Mana
+══════════════════════════════════════════════════ */
 
-  /* Typography */
-  --font-display:  'Cinzel Decorative', serif;
-  --font-serif:    'Cormorant Garamond', serif;
-  --font-body:     'EB Garamond', serif;
-  --font-arabic:   'Noto Naskh Arabic', serif;
-  --font-chinese:  'Noto Serif SC', serif;
-  --font-latin:    'Libre Baskerville', serif;
-
-  /* Spacing */
-  --max: 1400px;
+:root{
+  --ink:#030309;--ink2:#06060F;--ink3:#0C0C1E;
+  --gold:#C9A84C;--gold2:#E8C96A;--gold3:#F5E090;--gold4:#FFF5CC;
+  --golddim:#7A5E20;--copper:#B87333;
+  --sand:#E8C89A;--sand2:#F0DDB8;--ivory:#FAF6EC;
+  --crimson:#7A1515;--lapis:#0F2A55;--nile:#0A3055;
+  --w:100%;--max:1440px;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  --ease2:cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ── RESET ── */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; }
-body {
-  background: var(--ink);
-  color: var(--sand2);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  cursor: none;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--ink);color:var(--sand2);
+  font-family:'EB Garamond',serif;overflow-x:hidden;cursor:none;
 }
-a { text-decoration: none; color: inherit; }
-img { max-width:100%; display:block; }
-button { background:none; border:none; cursor:none; }
+::selection{background:rgba(201,168,76,0.3);color:var(--gold3)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{background:none;border:none;cursor:none;font-family:inherit}
 
-/* ── CUSTOM CURSOR ── */
-#cursor {
-  position: fixed; z-index: 99999;
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  background: var(--gold);
-  pointer-events: none;
-  transform: translate(-50%,-50%);
-  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-  mix-blend-mode: difference;
+/* ── CURSOR ── */
+#cur,#curR{
+  position:fixed;pointer-events:none;z-index:99999;
+  transform:translate(-50%,-50%);border-radius:50%;
 }
-#cursor-ring {
-  position: fixed; z-index: 99998;
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(201,168,76,0.5);
-  pointer-events: none;
-  transform: translate(-50%,-50%);
-  transition: transform 0.15s ease, width 0.4s ease, height 0.4s ease;
+#cur{width:8px;height:8px;background:var(--gold);transition:width .3s,height .3s,background .3s}
+#curR{
+  width:36px;height:36px;
+  border:1px solid rgba(201,168,76,0.45);
+  transition:width .5s var(--ease),height .5s var(--ease),border-color .3s;
+  mix-blend-mode:normal;
 }
-body:has(a:hover) #cursor,
-body:has(button:hover) #cursor { width:20px; height:20px; }
-body:has(a:hover) #cursor-ring,
-body:has(button:hover) #cursor-ring { width:60px; height:60px; border-color: var(--gold); }
+body:has(a:hover) #cur,body:has(button:hover) #cur{width:16px;height:16px;background:var(--gold2)}
+body:has(a:hover) #curR,body:has(button:hover) #curR{width:56px;height:56px;border-color:var(--gold)}
+body:has(.era-card:hover) #curR{width:80px;height:80px;border-color:var(--gold2)}
 
-/* ── SCROLL PROGRESS ── */
-#progress-bar {
-  position: fixed; top:0; left:0; right:0; height:2px; z-index:1000;
-  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold2));
-  transform-origin: left; transform: scaleX(0);
-  box-shadow: 0 0 10px var(--gold);
+/* ── PROGRESS BAR ── */
+#pgbar{
+  position:fixed;top:0;left:0;right:0;height:2px;z-index:1000;
+  background:linear-gradient(90deg,var(--golddim),var(--gold),var(--gold2),var(--gold3));
+  transform-origin:left;transform:scaleX(0);
+  box-shadow:0 0 8px rgba(201,168,76,0.8),0 0 20px rgba(201,168,76,0.4);
+  transition:transform .1s linear;
 }
 
 /* ── GRAIN ── */
-#grain {
-  position: fixed; inset:-50%; width:200%; height:200%;
-  pointer-events:none; z-index:9997; opacity:0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain 0.4s steps(1) infinite;
+#grain{
+  position:fixed;inset:-50%;width:200%;height:200%;
+  pointer-events:none;z-index:9997;opacity:0.022;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain .4s steps(1) infinite;
 }
-@keyframes grain {
-  0%{transform:translate(0,0)} 10%{transform:translate(-3%,-3%)}
-  20%{transform:translate(3%,3%)} 30%{transform:translate(-3%,3%)}
-  40%{transform:translate(3%,-3%)} 50%{transform:translate(-2%,0)}
-  60%{transform:translate(2%,0)} 70%{transform:translate(0,2%)}
-  80%{transform:translate(0,-2%)} 90%{transform:translate(2%,2%)}
-}
+@keyframes grain{0%{transform:translate(0,0)}10%{transform:translate(-3%,-3%)}20%{transform:translate(3%,3%)}30%{transform:translate(-3%,3%)}40%{transform:translate(3%,-3%)}50%{transform:translate(-2%,0)}60%{transform:translate(2%,0)}70%{transform:translate(0,2%)}80%{transform:translate(0,-2%)}90%{transform:translate(2%,2%)}}
 
 /* ══════════════════════════════════════
-   LOADING SCREEN
+   LOADER — Inspired by Lusion v3
 ══════════════════════════════════════ */
-#loader {
-  position: fixed; inset:0; z-index:99990;
-  background: var(--ink);
-  display: flex; flex-direction:column;
-  align-items:center; justify-content:center;
-  transition: opacity 1s ease, transform 1s ease;
+#loader{
+  position:fixed;inset:0;z-index:99990;
+  background:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:clip-path 1.2s var(--ease);
+  clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
 }
-#loader.out { opacity:0; transform:scale(1.03); pointer-events:none; }
-.loader-bg {
-  position:absolute; inset:0; overflow:hidden;
+#loader.out{clip-path:polygon(0 0,100% 0,100% 0%,0 0%)}
+.ld-mandala{position:absolute;top:50%;left:50%;animation:spin 80s linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.ld-counter{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(5rem,15vw,12rem);font-weight:900;line-height:1;
+  background:linear-gradient(180deg,rgba(255,255,255,0.9) 0%,var(--gold) 50%,var(--golddim) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  position:relative;z-index:2;letter-spacing:-0.02em;
+  filter:drop-shadow(0 0 60px rgba(201,168,76,0.3));
 }
-.loader-mandala {
-  position:absolute; top:50%; left:50%;
-  transform: translate(-50%,-50%);
-  opacity:0.06;
-  animation: rotateSlow 60s linear infinite;
+.ld-sub{
+  font-family:'Cormorant Garamond',serif;font-size:11px;
+  letter-spacing:.6em;text-transform:uppercase;
+  color:rgba(201,168,76,0.4);margin-top:.75rem;position:relative;z-index:2;
 }
-@keyframes rotateSlow { to { transform:translate(-50%,-50%) rotate(360deg); } }
-.loader-content { position:relative; z-index:2; text-align:center; }
-.loader-eye {
-  width:80px; height:80px; margin:0 auto 2rem;
-  animation: eyePulse 3s ease-in-out infinite;
+.ld-bar{
+  position:absolute;bottom:0;left:0;height:2px;background:var(--gold);
+  transition:width .08s linear;box-shadow:0 0 10px var(--gold);
 }
-@keyframes eyePulse {
-  0%,100%{filter:drop-shadow(0 0 10px rgba(201,168,76,0.3))}
-  50%{filter:drop-shadow(0 0 30px rgba(201,168,76,0.8))}
-}
-.loader-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem,8vw,5rem);
-  font-weight:700;
-  letter-spacing: 0.3em;
-  background: linear-gradient(180deg, var(--ivory) 0%, var(--gold) 50%, var(--gold-dim) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip:text;
-  margin-bottom: 0.3rem;
-}
-.loader-sub {
-  font-family: var(--font-serif);
-  font-size: 11px; letter-spacing:0.5em;
-  color: rgba(201,168,76,0.5); text-transform:uppercase;
-}
-.loader-bar-wrap {
-  width: 220px; height:1px;
-  background: rgba(201,168,76,0.1);
-  margin: 2.5rem auto 0.75rem; overflow:hidden; border-radius:1px;
-}
-#loader-fill { height:100%; background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold2)); width:0%; transition:width 0.08s ease; }
-#loader-msg { font-family:var(--font-serif); font-size:12px; letter-spacing:0.3em; color:rgba(201,168,76,0.4); min-height:18px; }
-#loader-pct { font-family:var(--font-display); font-size:11px; color:rgba(201,168,76,0.25); margin-top:4px; }
 
 /* ══════════════════════════════════════
    NAVBAR
 ══════════════════════════════════════ */
-#nav {
-  position:fixed; top:0; left:0; right:0; z-index:500;
-  padding: 1.5rem 3rem;
-  display:flex; align-items:center; justify-content:space-between;
-  transition: all 0.5s ease;
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:1.6rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all .5s var(--ease);
 }
-#nav.solid {
-  padding: 0.9rem 3rem;
-  background: rgba(4,4,14,0.85);
-  backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(201,168,76,0.08);
+#nav.solid{
+  padding:1rem 3rem;
+  background:rgba(3,3,9,.88);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(201,168,76,.07);
 }
-.nav-logo {
-  display:flex; align-items:center; gap:1rem; cursor:pointer;
-  transition: transform 0.3s ease;
+.n-logo{display:flex;align-items:center;gap:.85rem;cursor:pointer}
+.n-logo svg{transition:transform .4s var(--ease)}
+.n-logo:hover svg{transform:scale(1.1) rotate(-5deg)}
+.n-mark{
+  font-family:'Cinzel Decorative',serif;font-size:13px;font-weight:700;
+  letter-spacing:.18em;
+  background:linear-gradient(135deg,var(--gold3),var(--gold),var(--golddim));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.nav-logo:hover { transform:scale(1.03); }
-.nav-wordmark {
-  font-family: var(--font-display);
-  font-size: 15px; font-weight:700;
-  letter-spacing: 0.18em;
-  background: linear-gradient(135deg, var(--gold3), var(--gold), var(--gold-dim));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+.n-mark small{
+  display:block;font-family:'Cormorant Garamond',serif;font-size:7px;
+  letter-spacing:.45em;-webkit-text-fill-color:rgba(201,168,76,.3);
 }
-.nav-wordmark small {
-  display:block; font-family:var(--font-serif);
-  font-size:8px; letter-spacing:0.4em;
-  color:rgba(201,168,76,0.35); -webkit-text-fill-color:rgba(201,168,76,0.35);
+.n-links{display:flex;gap:2.5rem}
+.n-link{
+  font-family:'Cormorant Garamond',serif;font-size:12px;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(240,221,184,.45);cursor:pointer;
+  position:relative;transition:color .3s;
+  padding-bottom:2px;
 }
-.nav-center {
-  display:flex; gap:2.5rem; align-items:center;
+.n-link::after{
+  content:'';position:absolute;bottom:0;left:0;right:100%;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  transition:right .35s var(--ease);
 }
-.nav-link {
-  font-family: var(--font-serif);
-  font-size: 12px; letter-spacing:0.2em;
-  text-transform: uppercase;
-  color: rgba(240,221,184,0.5);
-  transition: color 0.3s ease;
-  cursor: pointer; position:relative;
+.n-link:hover{color:var(--gold2)}
+.n-link:hover::after{right:0}
+.n-right{display:flex;gap:.6rem;align-items:center}
+.n-btn{
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(201,168,76,.14);
+  background:rgba(255,255,255,.025);
+  color:rgba(240,221,184,.45);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .35s var(--ease);cursor:pointer;
 }
-.nav-link::after {
-  content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px;
-  background: var(--gold); transform:scaleX(0); transition:transform 0.3s ease;
+.n-btn:hover{color:var(--gold);border-color:rgba(201,168,76,.5);background:rgba(201,168,76,.08);transform:scale(1.1)}
+.lang-wrap{position:relative}
+.lang-drop{
+  position:absolute;top:48px;right:0;min-width:170px;
+  background:rgba(3,3,9,.97);border:1px solid rgba(201,168,76,.14);
+  border-radius:12px;overflow:hidden;display:none;
+  box-shadow:0 30px 80px rgba(0,0,0,.7);backdrop-filter:blur(20px);
 }
-.nav-link:hover { color:var(--gold); }
-.nav-link:hover::after { transform:scaleX(1); }
-.nav-right { display:flex; gap:0.75rem; align-items:center; }
-.nav-btn {
-  width:38px; height:38px; border-radius:50%;
-  border:1px solid rgba(201,168,76,0.15);
-  background: rgba(255,255,255,0.03);
-  color:rgba(240,221,184,0.5);
-  display:flex; align-items:center; justify-content:center;
-  transition:all 0.3s ease; cursor:pointer; font-size:14px;
+.lang-drop.open{display:block;animation:dropDown .25s var(--ease)}
+@keyframes dropDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.l-opt{
+  padding:11px 18px;display:flex;align-items:center;gap:12px;
+  font-family:'Cormorant Garamond',serif;font-size:13px;
+  color:rgba(240,221,184,.5);cursor:pointer;
+  transition:all .2s;border-bottom:1px solid rgba(255,255,255,.03);
 }
-.nav-btn:hover { color:var(--gold); border-color:rgba(201,168,76,0.4); background:rgba(201,168,76,0.08); }
-
-/* Language dropdown */
-.lang-wrap { position:relative; }
-.lang-dropdown {
-  position:absolute; top:50px; right:0;
-  background: rgba(4,4,14,0.97);
-  border:1px solid rgba(201,168,76,0.15);
-  border-radius:14px; overflow:hidden;
-  min-width:175px; display:none;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-  backdrop-filter:blur(20px);
+.l-opt:last-child{border:none}
+.l-opt:hover,.l-opt.on{background:rgba(201,168,76,.1);color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:6px}
+.hamburger span{width:22px;height:1.5px;background:rgba(240,221,184,.55);transition:all .3s;display:block}
+.mob-nav{
+  display:none;position:fixed;inset:0;z-index:490;
+  background:rgba(3,3,9,.97);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;gap:3rem;
 }
-.lang-dropdown.open { display:block; animation:dropIn 0.25s ease; }
-@keyframes dropIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
-.lang-opt {
-  padding:11px 18px; display:flex; align-items:center; gap:12px;
-  font-family:var(--font-serif); font-size:13px;
-  color:rgba(240,221,184,0.55); cursor:pointer;
-  transition:all 0.2s ease; border-bottom:1px solid rgba(255,255,255,0.03);
-}
-.lang-opt:last-child { border:none; }
-.lang-opt:hover,.lang-opt.on { background:rgba(201,168,76,0.1); color:var(--gold); }
-.lang-flag { font-size:16px; }
-.lang-name { flex:1; }
-.lang-native { font-size:11px; opacity:0.5; }
-
-/* Mobile menu */
-.hamburger { display:none; flex-direction:column; gap:5px; padding:6px; }
-.hamburger span { width:22px; height:1.5px; background:rgba(240,221,184,0.6); transition:all 0.3s ease; display:block; }
-.mobile-nav {
-  display:none; position:fixed; inset:0; z-index:490;
-  background:rgba(4,4,14,0.97); backdrop-filter:blur(20px);
-  flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
-}
-.mobile-nav.open { display:flex; animation:fadeIn 0.3s ease; }
-.mobile-nav .nav-link { font-size:1.5rem; letter-spacing:0.2em; color:var(--sand); }
+.mob-nav.open{display:flex;animation:fadeIn .3s}
+.mob-nav .n-link{font-size:1.8rem;letter-spacing:.15em;color:var(--sand)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
 /* ══════════════════════════════════════
-   HERO SECTION
+   HERO — Inspired by Star Atlas + Zentry
 ══════════════════════════════════════ */
-#hero {
-  position:relative; width:100%; height:100vh;
-  overflow:hidden; display:flex;
-  align-items:center; justify-content:center;
+#hero{
+  position:relative;width:100%;height:100vh;
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
 }
-#hero-canvas { position:absolute; inset:0; width:100%; height:100%; }
-.hero-vignette {
-  position:absolute; inset:0; pointer-events:none;
-  background:radial-gradient(ellipse 80% 80% at 50% 50%, transparent 20%, rgba(4,4,14,0.6) 70%, rgba(4,4,14,0.97) 100%);
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%}
+.h-vig{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 90% 90% at 50% 50%,transparent 15%,rgba(3,3,9,.55) 65%,rgba(3,3,9,.97) 100%);
 }
-.hero-bottom { position:absolute; bottom:0; left:0; right:0; height:250px; pointer-events:none;
-  background:linear-gradient(transparent,var(--ink)); }
-.hero-content {
-  position:relative; z-index:10;
-  text-align:center; padding:2rem;
-  display:flex; flex-direction:column; align-items:center;
+.h-bot{position:absolute;bottom:0;left:0;right:0;height:280px;pointer-events:none;background:linear-gradient(transparent,var(--ink))}
+.h-content{
+  position:relative;z-index:10;text-align:center;padding:2rem;
+  display:flex;flex-direction:column;align-items:center;
 }
-.hero-kicker {
-  font-family:var(--font-serif); font-size:10px;
-  letter-spacing:0.6em; text-transform:uppercase;
-  color:rgba(201,168,76,0.55); margin-bottom:1.5rem;
-  animation: fadeUp 1s 1s both;
+/* BIG WORD — Zentry style */
+.h-eyebrow{
+  font-family:'Cormorant Garamond',serif;font-size:10px;
+  letter-spacing:.6em;text-transform:uppercase;
+  color:rgba(201,168,76,.5);margin-bottom:1.5rem;
+  animation:wordReveal .8s 1.2s both;
 }
-.hero-rule {
-  width:100px; height:1px;
+.h-title-wrap{overflow:hidden;margin-bottom:1rem}
+.h-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(5rem,18vw,16rem);
+  font-weight:900;letter-spacing:.08em;line-height:.85;
+  background:linear-gradient(180deg,
+    #ffffff 0%,var(--gold4) 15%,var(--gold3) 35%,
+    var(--gold) 55%,var(--golddim) 80%,#3A2800 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 80px rgba(201,168,76,.25));
+  animation:titleReveal 1.4s 1.4s both;
+  display:block;
+}
+@keyframes titleReveal{
+  from{opacity:0;transform:translateY(80px) skewY(3deg);filter:drop-shadow(0 0 0 transparent)}
+  to{opacity:1;transform:none;filter:drop-shadow(0 0 80px rgba(201,168,76,.25))}
+}
+@keyframes wordReveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.h-rule{
+  width:120px;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:0 auto 1.5rem; animation:fadeUp 1s 0.8s both;
+  margin:1rem auto;animation:wordReveal .8s 2s both;
 }
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(4.5rem,16vw,13rem);
-  font-weight:700; letter-spacing:0.12em;
-  line-height:0.9;
-  background: linear-gradient(180deg,
-    var(--ivory) 0%,
-    var(--gold3) 25%,
-    var(--gold) 55%,
-    var(--gold-dim) 80%,
-    #4A3010 100%
-  );
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-  filter:drop-shadow(0 0 60px rgba(201,168,76,0.2));
-  animation:heroReveal 1.5s 1.2s both;
+.h-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(.8rem,2.2vw,1.2rem);
+  letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(232,200,154,.65);animation:wordReveal .8s 2.2s both;
 }
-@keyframes heroReveal {
-  from{opacity:0; transform:translateY(40px) scale(0.95); filter:drop-shadow(0 0 0px transparent)}
-  to{opacity:1; transform:none; filter:drop-shadow(0 0 60px rgba(201,168,76,0.2))}
+.h-tagline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(.9rem,1.8vw,1.3rem);
+  color:rgba(255,255,255,.22);margin-top:.6rem;
+  animation:wordReveal .8s 2.5s both;
 }
-.hero-subtitle {
-  font-family:var(--font-serif);
-  font-size:clamp(0.7rem,2vw,1.1rem);
-  letter-spacing:0.35em; text-transform:uppercase;
-  color:rgba(232,200,154,0.7); margin-top:1.2rem;
-  animation:fadeUp 1s 1.8s both;
+.h-cta-row{
+  display:flex;gap:1.2rem;margin-top:3rem;flex-wrap:wrap;justify-content:center;
+  animation:wordReveal .8s 2.8s both;
 }
-.hero-tagline {
-  font-family:var(--font-serif); font-style:italic;
-  font-size:clamp(0.85rem,1.5vw,1.15rem);
-  color:rgba(255,255,255,0.25); margin-top:0.8rem;
-  animation:fadeUp 1s 2.1s both;
+/* Buttons — Obys style */
+.btn-p{
+  font-family:'Cormorant Garamond',serif;font-size:11px;
+  letter-spacing:.3em;text-transform:uppercase;
+  padding:15px 40px;border-radius:0;cursor:pointer;
+  background:linear-gradient(135deg,var(--golddim),var(--gold));
+  color:var(--ink);font-weight:700;border:none;
+  transition:all .5s var(--ease);
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+  box-shadow:0 0 30px rgba(201,168,76,.2);
+  position:relative;overflow:hidden;
 }
-.hero-cta-row {
-  display:flex; gap:1.5rem; margin-top:3rem; flex-wrap:wrap; justify-content:center;
-  animation:fadeUp 1s 2.4s both;
+.btn-p::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  opacity:0;transition:opacity .4s;
 }
-.btn-gold {
-  font-family:var(--font-serif); font-size:11px;
-  letter-spacing:0.3em; text-transform:uppercase;
-  padding:14px 36px; border-radius:40px; cursor:pointer;
-  background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-dim));
-  background-size:200% auto;
-  color:var(--ink); font-weight:700;
-  border:none; transition:all 0.4s ease;
-  box-shadow:0 0 30px rgba(201,168,76,0.25);
+.btn-p:hover{box-shadow:0 0 60px rgba(201,168,76,.5);transform:translateY(-3px)}
+.btn-p:hover::after{opacity:1}
+.btn-s{
+  font-family:'Cormorant Garamond',serif;font-size:11px;
+  letter-spacing:.3em;text-transform:uppercase;
+  padding:14px 39px;border-radius:0;cursor:pointer;
+  border:1px solid rgba(201,168,76,.35);
+  color:rgba(201,168,76,.75);
+  transition:all .5s var(--ease);background:transparent;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
 }
-.btn-gold:hover {
-  background-position:right center;
-  box-shadow:0 0 50px rgba(201,168,76,0.5);
-  transform:translateY(-2px);
-}
-.btn-outline {
-  font-family:var(--font-serif); font-size:11px;
-  letter-spacing:0.3em; text-transform:uppercase;
-  padding:13px 35px; border-radius:40px; cursor:pointer;
-  border:1px solid rgba(201,168,76,0.4);
-  color:rgba(201,168,76,0.8);
-  transition:all 0.4s ease;
-  background:rgba(201,168,76,0.04);
-}
-.btn-outline:hover { border-color:var(--gold); color:var(--gold); background:rgba(201,168,76,0.1); transform:translateY(-2px); }
+.btn-s:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.07);transform:translateY(-3px)}
 
-.hero-corners .c {
-  position:absolute; width:50px; height:50px;
-  border-color:rgba(201,168,76,0.2);
+.h-corners .co{position:absolute;width:55px;height:55px;border-color:rgba(201,168,76,.18)}
+.co.tl{top:90px;left:30px;border-top:1px solid;border-left:1px solid}
+.co.tr{top:90px;right:30px;border-top:1px solid;border-right:1px solid}
+.co.bl{bottom:55px;left:30px;border-bottom:1px solid;border-left:1px solid}
+.co.br{bottom:55px;right:30px;border-bottom:1px solid;border-right:1px solid}
+/* Animated corner dots */
+.co::before{
+  content:'';position:absolute;width:4px;height:4px;
+  background:var(--gold);border-radius:50%;
+  box-shadow:0 0 8px var(--gold);
 }
-.c.tl{top:90px;left:30px;border-top:1px solid;border-left:1px solid;}
-.c.tr{top:90px;right:30px;border-top:1px solid;border-right:1px solid;}
-.c.bl{bottom:60px;left:30px;border-bottom:1px solid;border-left:1px solid;}
-.c.br{bottom:60px;right:30px;border-bottom:1px solid;border-right:1px solid;}
+.co.tl::before{top:-2px;left:-2px}
+.co.tr::before{top:-2px;right:-2px}
+.co.bl::before{bottom:-2px;left:-2px}
+.co.br::before{bottom:-2px;right:-2px}
 
-.scroll-indicator {
-  position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:8px;
-  animation:fadeUp 1s 3s both;
-  cursor:pointer;
+.scroll-cue{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  cursor:pointer;animation:wordReveal 1s 3.2s both;
 }
-.scroll-indicator span {
-  font-family:var(--font-serif); font-size:9px;
-  letter-spacing:0.5em; text-transform:uppercase;
-  color:rgba(201,168,76,0.35);
+.scroll-cue span{
+  font-family:'Cormorant Garamond',serif;font-size:9px;
+  letter-spacing:.5em;text-transform:uppercase;color:rgba(201,168,76,.3);
 }
-.scroll-mouse {
-  width:22px; height:36px; border:1px solid rgba(201,168,76,0.25);
-  border-radius:11px; position:relative;
+.scroll-mouse{
+  width:20px;height:34px;border:1px solid rgba(201,168,76,.22);
+  border-radius:10px;position:relative;
 }
-.scroll-mouse::after {
-  content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%);
-  width:2px; height:7px; background:var(--gold); border-radius:1px;
-  animation:scrollBob 1.8s ease-in-out infinite;
+.scroll-mouse::after{
+  content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);
+  width:2px;height:7px;background:var(--gold);border-radius:1px;
+  animation:scrollBob 2s ease-in-out infinite;
 }
-@keyframes scrollBob { 0%,100%{top:6px;opacity:1} 50%{top:18px;opacity:0.3} }
-
-@keyframes fadeUp {
-  from{opacity:0;transform:translateY(25px)} to{opacity:1;transform:translateY(0)}
-}
-@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes scrollBob{0%,100%{top:5px;opacity:1}50%{top:17px;opacity:.2}}
 
 /* ══════════════════════════════════════
    SECTION COMMONS
 ══════════════════════════════════════ */
-section { position:relative; overflow:hidden; }
-.container { max-width:var(--max); margin:0 auto; padding:0 3rem; }
-.section-pad { padding:8rem 0; }
+.wrap{max-width:var(--max);margin:0 auto;padding:0 3.5rem}
+.sec{position:relative;overflow:hidden}
+.sp{padding:9rem 0}
 
-.ornament {
-  font-family:var(--font-serif); font-size:10px;
-  letter-spacing:0.6em; text-transform:uppercase;
-  color:rgba(201,168,76,0.4); margin-bottom:1rem;
-  display:flex; align-items:center; gap:1rem; justify-content:center;
+/* Ornamental heading — Zentry inspired */
+.orn{
+  font-family:'Cormorant Garamond',serif;font-size:9px;
+  letter-spacing:.65em;text-transform:uppercase;
+  color:rgba(201,168,76,.38);margin-bottom:1rem;
+  display:flex;align-items:center;gap:1.2rem;justify-content:center;
 }
-.ornament::before,.ornament::after {
-  content:''; flex:1; max-width:60px; height:1px;
-  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4));
+.orn::before,.orn::after{
+  content:'';flex:1;max-width:60px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,.35));
 }
-.ornament::after { background:linear-gradient(90deg,rgba(201,168,76,0.4),transparent); }
-.section-title {
-  font-family:var(--font-display);
-  font-size:clamp(2rem,5vw,3.8rem); font-weight:700;
-  letter-spacing:0.08em; text-align:center;
-  background:linear-gradient(180deg,var(--ivory),var(--gold));
+.orn::after{background:linear-gradient(270deg,transparent,rgba(201,168,76,.35))}
+.sec-h{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(2rem,5vw,4rem);font-weight:700;letter-spacing:.06em;
+  text-align:center;
+  background:linear-gradient(180deg,var(--ivory),var(--gold2) 60%,var(--golddim) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:0.75rem;
+  margin-bottom:.75rem;
 }
-.section-sub {
-  font-family:var(--font-serif); font-style:italic;
-  font-size:clamp(1rem,2vw,1.2rem);
-  color:rgba(232,200,154,0.5); text-align:center;
-}
-
-/* DIVIDER */
-.divider {
-  height:8rem; display:flex; align-items:center;
-  justify-content:center; position:relative;
-}
-.divider::before {
-  content:''; position:absolute; left:5%; right:5%; height:1px;
-  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.1),rgba(201,168,76,0.08),transparent);
-}
-.divider-icon {
-  position:relative; z-index:2;
-  background:var(--ink); padding:0 1.5rem;
-  color:rgba(201,168,76,0.3); font-size:18px;
-  animation:rotateSlow 20s linear infinite;
+.sec-s{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1rem,2vw,1.3rem);
+  color:rgba(232,200,154,.45);text-align:center;
 }
 
-/* REVEAL ANIMATIONS */
-.reveal { opacity:0; transform:translateY(40px); transition:opacity 0.9s ease,transform 0.9s ease; }
-.reveal.up { opacity:1; transform:none; }
-.reveal-left { opacity:0; transform:translateX(-40px); transition:opacity 0.9s ease,transform 0.9s ease; }
-.reveal-left.up { opacity:1; transform:none; }
-.reveal-right { opacity:0; transform:translateX(40px); transition:opacity 0.9s ease,transform 0.9s ease; }
-.reveal-right.up { opacity:1; transform:none; }
+/* Divider */
+.div{
+  height:9rem;display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.div::before{
+  content:'';position:absolute;left:5%;right:5%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,.1),rgba(201,168,76,.06),transparent);
+}
+.div-ico{
+  position:relative;z-index:2;background:var(--ink);padding:0 2rem;
+  display:flex;align-items:center;gap:12px;
+}
+.div-gem{
+  width:10px;height:10px;border:1px solid rgba(201,168,76,.3);
+  transform:rotate(45deg);background:var(--ink);
+  animation:spinGem 15s linear infinite;flex-shrink:0;
+}
+@keyframes spinGem{to{transform:rotate(405deg)}}
+.div-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.2))}
+.div-line.r{background:linear-gradient(270deg,transparent,rgba(201,168,76,.2))}
+
+/* Reveal */
+.rev{opacity:0;transform:translateY(50px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rev.up{opacity:1;transform:none}
+.rev-l{opacity:0;transform:translateX(-50px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rev-l.up{opacity:1;transform:none}
+.rev-r{opacity:0;transform:translateX(50px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rev-r.up{opacity:1;transform:none}
 
 /* ══════════════════════════════════════
-   STATS BAND
+   STATS — Horizontal ticker (Active Theory style)
 ══════════════════════════════════════ */
-#stats { padding:5rem 0; background:linear-gradient(180deg,transparent,rgba(201,168,76,0.03),transparent); }
-.stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px;
-  border:1px solid rgba(201,168,76,0.08); border-radius:2px; overflow:hidden; }
-.stat-item {
-  padding:3rem 2rem; text-align:center;
-  background:rgba(255,255,255,0.015);
-  border-right:1px solid rgba(201,168,76,0.06);
-  transition:background 0.4s ease;
+#stats{padding:5rem 0;overflow:hidden}
+.stats-ticker{
+  display:flex;gap:0;
+  border-top:1px solid rgba(201,168,76,.07);
+  border-bottom:1px solid rgba(201,168,76,.07);
 }
-.stat-item:last-child { border-right:none; }
-.stat-item:hover { background:rgba(201,168,76,0.05); }
-.stat-num {
-  font-family:var(--font-display); font-size:2.8rem; font-weight:700;
+.stat-block{
+  flex:1;padding:3.5rem 2rem;text-align:center;
+  border-right:1px solid rgba(201,168,76,.06);
+  position:relative;overflow:hidden;
+  transition:background .5s;
+}
+.stat-block:last-child{border-right:none}
+.stat-block::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 100%,rgba(201,168,76,.08) 0%,transparent 70%);
+  opacity:0;transition:opacity .5s;
+}
+.stat-block:hover::before{opacity:1}
+.stat-n{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(2rem,4vw,3.2rem);font-weight:900;
   background:linear-gradient(135deg,var(--gold3),var(--gold));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1; margin-bottom:0.5rem;
-  animation:countUp 0.1s ease;
+  line-height:1;margin-bottom:.5rem;display:block;
 }
-.stat-label {
-  font-family:var(--font-serif); font-size:10px;
-  letter-spacing:0.35em; text-transform:uppercase;
-  color:rgba(201,168,76,0.4);
-}
-
-/* ══════════════════════════════════════
-   ABOUT / INTRO
-══════════════════════════════════════ */
-#about { padding:8rem 0; }
-.about-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
-}
-.about-image-wrap {
-  position:relative;
-}
-.about-img {
-  width:100%; aspect-ratio:3/4; object-fit:cover;
-  border-radius:2px;
-  filter:sepia(20%) contrast(1.1);
-}
-.about-img-frame {
-  position:absolute; inset:-16px;
-  border:1px solid rgba(201,168,76,0.15); border-radius:2px;
-  pointer-events:none;
-}
-.about-img-frame::before {
-  content:''; position:absolute; top:12px; left:12px; right:12px; bottom:12px;
-  border:1px solid rgba(201,168,76,0.08);
-}
-.about-gold-bar {
-  position:absolute; bottom:-1px; left:0; right:0; height:3px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-.about-text { }
-.about-quote {
-  font-family:var(--font-serif); font-style:italic;
-  font-size:clamp(1.5rem,3vw,2.2rem); line-height:1.4;
-  color:rgba(240,221,184,0.85); margin-bottom:2rem;
-}
-.about-quote span { color:var(--gold); }
-.about-body {
-  font-family:var(--font-body); font-size:1.05rem; line-height:1.8;
-  color:rgba(240,221,184,0.55); margin-bottom:2rem;
-}
-.about-detail {
-  display:flex; gap:0.75rem; align-items:flex-start; margin-bottom:1rem;
-}
-.about-dot {
-  width:6px; height:6px; border-radius:50%;
-  background:var(--gold); margin-top:8px; flex-shrink:0;
-}
-.about-detail p {
-  font-family:var(--font-body); font-size:0.95rem; line-height:1.7;
-  color:rgba(240,221,184,0.5);
+.stat-l{
+  font-family:'Cormorant Garamond',serif;font-size:9px;
+  letter-spacing:.35em;text-transform:uppercase;
+  color:rgba(201,168,76,.38);
 }
 
 /* ══════════════════════════════════════
-   TIMELINE — RIVER OF TIME
+   ABOUT — Split screen (Obys inspired)
 ══════════════════════════════════════ */
-#timeline { padding:8rem 0; background:radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.03) 0%, transparent 70%); }
-.timeline-intro { text-align:center; margin-bottom:5rem; }
-.timeline-nav {
-  display:flex; justify-content:center; gap:0; margin-bottom:4rem;
-  border:1px solid rgba(201,168,76,0.1); border-radius:40px; overflow:hidden;
-  max-width:700px; margin-left:auto; margin-right:auto; margin-bottom:4rem;
-  position:relative;
+#about{padding:9rem 0}
+.about-split{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;align-items:stretch;min-height:80vh;
 }
-.t-nav-btn {
-  flex:1; padding:12px 8px;
-  font-family:var(--font-serif); font-size:10px;
-  letter-spacing:0.2em; text-transform:uppercase;
-  color:rgba(201,168,76,0.4); cursor:pointer;
-  transition:all 0.3s ease; text-align:center;
-  border-right:1px solid rgba(201,168,76,0.08);
-  position:relative; z-index:1;
+.about-visual{
+  position:relative;overflow:hidden;
 }
-.t-nav-btn:last-child { border-right:none; }
-.t-nav-btn.active { color:var(--ink); }
-.t-nav-bg {
-  position:absolute; top:0; bottom:0;
-  background:var(--gold); border-radius:40px;
-  transition:all 0.4s cubic-bezier(0.4,0,0.2,1); z-index:0;
-  pointer-events:none;
+.about-img{
+  width:100%;height:100%;object-fit:cover;
+  filter:sepia(20%) contrast(1.1) brightness(.9);
+  transition:transform 1s var(--ease),filter 1s;
 }
-.timeline-cards {
-  display:flex; gap:1.5rem; padding:0 3rem 2rem;
-  overflow-x:auto; scroll-snap-type:x mandatory;
-  scrollbar-width:thin; scrollbar-color:rgba(201,168,76,0.2) transparent;
+.about-visual:hover .about-img{transform:scale(1.04);filter:sepia(5%) contrast(1.15) brightness(.95)}
+/* Overlay text on image */
+.about-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(3,3,9,.7) 0%,transparent 60%,rgba(3,3,9,.3) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:3rem;
+}
+.about-img-stat{
+  font-family:'Cinzel Decorative',serif;font-size:3.5rem;font-weight:900;
+  color:rgba(201,168,76,.8);line-height:1;
+}
+.about-img-statl{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45)}
+.about-text-block{
+  padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;
+  background:rgba(255,255,255,.015);
+  border-left:1px solid rgba(201,168,76,.06);
+}
+.about-quote-big{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1.6rem,3.5vw,2.5rem);line-height:1.35;
+  color:rgba(240,221,184,.82);margin-bottom:2.5rem;
+}
+.about-quote-big span{color:var(--gold)}
+.about-body-text{
+  font-family:'EB Garamond',serif;font-size:1.08rem;line-height:1.85;
+  color:rgba(240,221,184,.5);margin-bottom:2rem;
+}
+.about-list{list-style:none;margin-bottom:3rem}
+.about-list li{
+  display:flex;gap:1rem;padding:.9rem 0;
+  border-bottom:1px solid rgba(201,168,76,.06);
+  font-family:'EB Garamond',serif;font-size:.98rem;
+  color:rgba(240,221,184,.48);line-height:1.6;
+  transition:color .3s;
+}
+.about-list li:hover{color:rgba(240,221,184,.75)}
+.about-list li::before{
+  content:'◆';color:var(--gold);font-size:.5rem;
+  margin-top:.45rem;flex-shrink:0;
+}
+
+/* ══════════════════════════════════════
+   TIMELINE — KPR style: full-bleed cards
+══════════════════════════════════════ */
+#timeline{padding:9rem 0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,.025) 0%,transparent 60%)}
+.tl-intro{text-align:center;margin-bottom:5rem}
+/* Era nav */
+.era-nav{
+  display:flex;justify-content:center;gap:0;
+  max-width:750px;margin:0 auto 5rem;
+  border:1px solid rgba(201,168,76,.1);
+  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+  overflow:hidden;position:relative;
+}
+.era-nav-bg{
+  position:absolute;top:0;bottom:0;background:var(--gold);
+  transition:left .4s var(--ease),width .4s var(--ease);z-index:0;
+}
+.era-btn{
+  flex:1;padding:11px 6px;font-family:'Cormorant Garamond',serif;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(201,168,76,.4);cursor:pointer;text-align:center;
+  border-right:1px solid rgba(201,168,76,.08);
+  position:relative;z-index:1;transition:color .3s;
+}
+.era-btn:last-child{border-right:none}
+.era-btn.active{color:var(--ink);font-weight:700}
+/* Horizontal scroll cards */
+.tl-scroll{
+  display:flex;gap:1.5rem;
+  padding:0 3.5rem 2rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:thin;scrollbar-color:rgba(201,168,76,.2) transparent;
   -webkit-overflow-scrolling:touch;
 }
-.timeline-cards::-webkit-scrollbar { height:2px; }
-.timeline-cards::-webkit-scrollbar-thumb { background:rgba(201,168,76,0.2); border-radius:1px; }
-.era-card {
-  flex-shrink:0; width:360px; border-radius:4px;
-  position:relative; overflow:hidden; scroll-snap-align:start;
-  cursor:pointer; transition:transform 0.5s ease,box-shadow 0.5s ease;
+.tl-scroll::-webkit-scrollbar{height:2px}
+.tl-scroll::-webkit-scrollbar-thumb{background:rgba(201,168,76,.2)}
+.era-card{
+  flex-shrink:0;width:380px;height:560px;
+  position:relative;overflow:hidden;scroll-snap-align:start;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));
+  transition:transform .6s var(--ease),box-shadow .6s;
 }
-.era-card:hover { transform:translateY(-10px) scale(1.01); box-shadow:0 40px 80px rgba(0,0,0,0.6); }
-.era-card-img {
-  width:100%; height:500px; object-fit:cover;
-  transition:transform 0.7s ease; filter:sepia(15%) contrast(1.05);
+.era-card:hover{transform:translateY(-12px) scale(1.01);box-shadow:0 50px 100px rgba(0,0,0,.7)}
+.era-card-img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .8s var(--ease),filter .6s;
+  filter:sepia(15%) contrast(1.05) brightness(.88);
 }
-.era-card:hover .era-card-img { transform:scale(1.06); }
-.era-card-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(180deg,rgba(4,4,14,0.05) 0%,rgba(4,4,14,0.5) 40%,rgba(4,4,14,0.98) 100%);
+.era-card:hover .era-card-img{transform:scale(1.08);filter:sepia(5%) contrast(1.1) brightness(.95)}
+.era-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(3,3,9,.05) 0%,rgba(3,3,9,.45) 35%,rgba(3,3,9,.98) 100%);
 }
-.era-color-accent {
-  position:absolute; top:0; left:0; right:0; height:3px;
-  opacity:0.8;
+.era-accent{position:absolute;top:0;left:0;right:0;height:3px}
+.era-content{position:absolute;bottom:0;left:0;right:0;padding:2rem}
+.era-yr{
+  font-family:'Cormorant Garamond',serif;font-size:9px;
+  letter-spacing:.35em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;margin-bottom:.65rem;
 }
-.era-card-content { position:absolute; bottom:0; left:0; right:0; padding:2rem; }
-.era-period {
-  font-family:var(--font-serif); font-size:9px;
-  letter-spacing:0.4em; text-transform:uppercase;
-  margin-bottom:0.6rem; display:flex; align-items:center; gap:8px;
+.era-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.era-name{
+  font-family:'Cinzel Decorative',serif;
+  font-size:1.2rem;font-weight:700;color:var(--ivory);
+  line-height:1.25;margin-bottom:.3rem;
 }
-.era-period-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
-.era-name {
-  font-family:var(--font-display); font-size:1.3rem;
-  font-weight:700; line-height:1.2; color:var(--ivory);
-  margin-bottom:0.3rem;
+.era-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;margin-bottom:.75rem}
+.era-desc{
+  font-family:'EB Garamond',serif;font-size:.88rem;
+  line-height:1.65;color:rgba(240,221,184,.48);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  margin-bottom:.9rem;
 }
-.era-subtitle {
-  font-family:var(--font-serif); font-style:italic;
-  font-size:0.9rem; margin-bottom:0.9rem;
-}
-.era-desc {
-  font-family:var(--font-body); font-size:0.85rem;
-  line-height:1.65; color:rgba(240,221,184,0.5);
-  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
-  margin-bottom:1rem;
-}
-.era-tags { display:flex; flex-wrap:wrap; gap:6px; }
-.era-tag {
-  font-family:var(--font-serif); font-size:9px;
-  letter-spacing:0.15em; padding:3px 10px; border-radius:20px;
-}
+.era-tags{display:flex;flex-wrap:wrap;gap:5px}
+.era-tag{font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:.12em;padding:3px 9px;border-radius:0}
 
 /* ══════════════════════════════════════
-   MAP SECTION
+   PARALLAX QUOTE — Mana style
 ══════════════════════════════════════ */
-#map { padding:8rem 0; }
-.map-layout { display:grid; grid-template-columns:1fr 380px; gap:3rem; align-items:start; }
-.map-frame {
-  position:relative; border-radius:4px; overflow:hidden;
-  aspect-ratio:4/3;
-  border:1px solid rgba(201,168,76,0.1);
-  background:radial-gradient(ellipse at 48% 35%, #0d1e35 0%, #060614 100%);
-  box-shadow:0 40px 120px rgba(0,0,0,0.6);
+#pquote{
+  padding:10rem 0;text-align:center;
+  background:linear-gradient(180deg,transparent,rgba(201,168,76,.025),transparent);
+  position:relative;overflow:hidden;
 }
-.map-grid-lines {
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);
-  background-size:40px 40px;
+#pquote::before{
+  content:'"';
+  position:absolute;top:-2rem;left:50%;transform:translateX(-50%);
+  font-family:'Cinzel Decorative',serif;font-size:25vw;font-weight:900;
+  color:rgba(201,168,76,.025);pointer-events:none;line-height:1;letter-spacing:-.05em;
 }
-.map-glow {
-  position:absolute; top:30%; left:48%;
-  width:200px; height:200px; border-radius:50%;
-  background:radial-gradient(circle,rgba(26,74,107,0.4) 0%,transparent 70%);
-  transform:translate(-50%,-50%); pointer-events:none;
+.pq-wrap{max-width:1000px;margin:0 auto;padding:0 3rem;position:relative;z-index:1}
+.pq-text{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1.5rem,3.5vw,2.4rem);line-height:1.6;
+  color:rgba(240,221,184,.72);margin-bottom:2rem;
 }
-.map-title-overlay {
-  position:absolute; top:16px; left:16px;
-  font-family:var(--font-serif); font-size:9px;
-  letter-spacing:0.4em; text-transform:uppercase;
-  color:rgba(201,168,76,0.3); z-index:5;
-}
-/* Beacon */
-.beacon {
-  position:absolute; transform:translate(-50%,-50%);
-  cursor:pointer; z-index:10;
-}
-.beacon-core {
-  width:12px; height:12px; border-radius:50%;
-  position:relative; z-index:3;
-  transition:transform 0.3s ease;
-  box-shadow:0 0 0 2px rgba(255,255,255,0.1);
-}
-.beacon:hover .beacon-core { transform:scale(1.5); }
-.beacon-pulse {
-  position:absolute; top:50%; left:50%;
-  border-radius:50%; pointer-events:none;
-  animation:bPulse 2.5s ease-out infinite;
-}
-.beacon-pulse:nth-child(3) { animation-delay:0.8s; }
-@keyframes bPulse {
-  0%{transform:translate(-50%,-50%) scale(0.5);opacity:0.9}
-  100%{transform:translate(-50%,-50%) scale(3.5);opacity:0}
-}
-.beacon-label {
-  position:absolute; top:-28px; left:50%; transform:translateX(-50%);
-  white-space:nowrap; font-family:var(--font-serif); font-size:10px;
-  letter-spacing:0.15em; padding:3px 10px; border-radius:3px;
-  background:rgba(4,4,14,0.9); border:1px solid rgba(255,255,255,0.08);
-  color:rgba(240,221,184,0.7);
-  opacity:0; transition:opacity 0.3s ease; pointer-events:none;
-}
-.beacon:hover .beacon-label { opacity:1; }
-
-/* Location info panel */
-.loc-panel {
-  position:sticky; top:120px;
-}
-.loc-panel-header {
-  font-family:var(--font-serif); font-size:9px;
-  letter-spacing:0.4em; text-transform:uppercase;
-  color:rgba(201,168,76,0.4); margin-bottom:1.5rem;
-  padding-bottom:1rem; border-bottom:1px solid rgba(201,168,76,0.08);
-}
-.loc-card {
-  border-radius:4px; overflow:hidden;
-  border:1px solid rgba(201,168,76,0.1);
-  background:rgba(255,255,255,0.02);
-  margin-bottom:1rem; cursor:pointer;
-  transition:all 0.3s ease;
-}
-.loc-card:hover,.loc-card.active {
-  border-color:rgba(201,168,76,0.3);
-  background:rgba(201,168,76,0.05);
-}
-.loc-card-img { width:100%; height:130px; object-fit:cover; filter:sepia(20%); transition:transform 0.5s ease; }
-.loc-card:hover .loc-card-img { transform:scale(1.04); }
-.loc-card-body { padding:1rem 1.2rem; }
-.loc-card-name {
-  font-family:var(--font-display); font-size:1rem;
-  color:var(--ivory); margin-bottom:2px;
-}
-.loc-card-ar {
-  font-family:var(--font-arabic); font-size:0.9rem;
-  margin-bottom:6px;
-}
-.loc-card-period {
-  font-family:var(--font-serif); font-size:9px;
-  letter-spacing:0.25em; text-transform:uppercase;
-}
-.loc-card-desc {
-  font-family:var(--font-body); font-size:0.82rem;
-  line-height:1.6; color:rgba(240,221,184,0.45);
-  margin-top:0.75rem; display:none;
-}
-.loc-card.active .loc-card-desc { display:block; }
+.pq-attr{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:.55em;text-transform:uppercase;color:rgba(201,168,76,.3)}
 
 /* ══════════════════════════════════════
-   GALLERY
+   MAP — Persepolis Reimagined style
 ══════════════════════════════════════ */
-#gallery { padding:8rem 0; }
-.gallery-intro { text-align:center; margin-bottom:5rem; }
-.gallery-filter {
-  display:flex; justify-content:center; gap:0.5rem;
-  margin-bottom:3rem; flex-wrap:wrap;
+#map{padding:9rem 0}
+.map-layout{display:grid;grid-template-columns:1fr 360px;gap:3rem;align-items:start}
+.map-frame{
+  position:relative;border-radius:0;overflow:hidden;aspect-ratio:16/10;
+  border:1px solid rgba(201,168,76,.1);
+  background:radial-gradient(ellipse at 48% 35%,#0B1E38 0%,#040410 100%);
+  box-shadow:0 60px 120px rgba(0,0,0,.7),0 0 0 1px rgba(201,168,76,.05);
+  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));
 }
-.filter-btn {
-  font-family:var(--font-serif); font-size:10px;
-  letter-spacing:0.25em; text-transform:uppercase;
-  padding:8px 20px; border-radius:30px; cursor:pointer;
-  border:1px solid rgba(201,168,76,0.15);
-  color:rgba(201,168,76,0.45); transition:all 0.3s ease;
+.map-grid-svg{position:absolute;inset:0;width:100%;height:100%;opacity:.06}
+.map-glow{
+  position:absolute;top:38%;left:50%;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,74,107,.5) 0%,transparent 70%);
+  transform:translate(-50%,-50%);pointer-events:none;
+}
+.map-label{
+  position:absolute;top:14px;left:16px;
+  font-family:'Cormorant Garamond',serif;font-size:8px;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:rgba(201,168,76,.25);z-index:5;
+}
+/* Beacons */
+.bcn{position:absolute;transform:translate(-50%,-50%);cursor:pointer;z-index:10}
+.bcn-core{
+  width:12px;height:12px;border-radius:50%;z-index:3;position:relative;
+  transition:transform .35s var(--ease);
+}
+.bcn:hover .bcn-core{transform:scale(1.6)}
+.bcn-ring{
+  position:absolute;top:50%;left:50%;border-radius:50%;pointer-events:none;
+  animation:bcnPulse 2.5s ease-out infinite;
+}
+.bcn-ring:nth-child(3){animation-delay:.9s}
+@keyframes bcnPulse{0%{transform:translate(-50%,-50%) scale(.5);opacity:.9}100%{transform:translate(-50%,-50%) scale(3.5);opacity:0}}
+.bcn-lbl{
+  position:absolute;top:-26px;left:50%;transform:translateX(-50%);
+  white-space:nowrap;font-family:'Cormorant Garamond',serif;font-size:10px;
+  letter-spacing:.15em;padding:3px 10px;
+  background:rgba(3,3,9,.92);border:1px solid rgba(255,255,255,.07);
+  color:rgba(240,221,184,.65);opacity:0;transition:opacity .3s;pointer-events:none;
+  clip-path:polygon(4px 0,100% 0,calc(100% - 4px) 100%,0 100%);
+}
+.bcn:hover .bcn-lbl{opacity:1}
+/* Location panel */
+.loc-panel{position:sticky;top:130px}
+.loc-header{
+  font-family:'Cormorant Garamond',serif;font-size:9px;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:rgba(201,168,76,.35);margin-bottom:1.5rem;
+  padding-bottom:1rem;border-bottom:1px solid rgba(201,168,76,.07);
+}
+.loc-card{
+  margin-bottom:.75rem;overflow:hidden;cursor:pointer;
+  border:1px solid rgba(201,168,76,.08);
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+  background:rgba(255,255,255,.02);transition:all .4s var(--ease);
+}
+.loc-card:hover,.loc-card.on{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.05)}
+.loc-card-img{width:100%;height:110px;object-fit:cover;filter:sepia(20%);transition:transform .5s var(--ease)}
+.loc-card:hover .loc-card-img,.loc-card.on .loc-card-img{transform:scale(1.05);filter:sepia(5%)}
+.loc-body{padding:1rem 1.2rem}
+.loc-bar{height:2px;margin-bottom:.8rem;border-radius:1px}
+.loc-name{font-family:'Cinzel Decorative',serif;font-size:.95rem;color:var(--ivory);margin-bottom:2px}
+.loc-ar{font-family:'Noto Naskh Arabic',serif;font-size:.88rem;margin-bottom:4px}
+.loc-per{font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:.25em;text-transform:uppercase}
+.loc-desc{
+  font-family:'EB Garamond',serif;font-size:.82rem;
+  line-height:1.6;color:rgba(240,221,184,.42);
+  margin-top:.7rem;display:none;
+}
+.loc-card.on .loc-desc{display:block}
+
+/* ══════════════════════════════════════
+   GALLERY — Masonry with hover reveal
+══════════════════════════════════════ */
+#gallery{padding:9rem 0}
+.gal-intro{text-align:center;margin-bottom:5rem}
+.gal-filter{display:flex;justify-content:center;gap:.5rem;margin-bottom:3.5rem;flex-wrap:wrap}
+.fil-btn{
+  font-family:'Cormorant Garamond',serif;font-size:10px;
+  letter-spacing:.25em;text-transform:uppercase;
+  padding:8px 22px;cursor:pointer;
+  border:1px solid rgba(201,168,76,.13);
+  color:rgba(201,168,76,.4);transition:all .35s;
+  clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);
   background:transparent;
 }
-.filter-btn:hover,.filter-btn.on {
-  background:rgba(201,168,76,0.1);
-  border-color:rgba(201,168,76,0.4);
-  color:var(--gold);
+.fil-btn:hover,.fil-btn.on{background:rgba(201,168,76,.09);border-color:rgba(201,168,76,.4);color:var(--gold)}
+.gal-masonry{columns:3;column-gap:1rem;padding:0 3.5rem}
+.g-item{
+  break-inside:avoid;margin-bottom:1rem;
+  position:relative;overflow:hidden;cursor:pointer;
+  border:1px solid rgba(201,168,76,.05);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%);
+  transition:all .5s var(--ease);
 }
-.gallery-masonry {
-  columns:3; column-gap:1rem; padding:0 3rem;
+.g-item:hover{border-color:rgba(201,168,76,.25);transform:scale(1.01)}
+.g-item img{
+  width:100%;display:block;
+  filter:sepia(12%) contrast(1.06) brightness(.92);
+  transition:transform .8s var(--ease),filter .5s;
 }
-.g-item {
-  break-inside:avoid; margin-bottom:1rem;
-  position:relative; overflow:hidden; border-radius:3px;
-  cursor:pointer; border:1px solid rgba(201,168,76,0.06);
-  transition:all 0.4s ease;
+.g-item:hover img{transform:scale(1.07);filter:sepia(2%) contrast(1.12) brightness(1)}
+.g-over{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(3,3,9,.97) 100%);
+  opacity:0;transition:opacity .45s;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;
 }
-.g-item:hover { border-color:rgba(201,168,76,0.25); transform:scale(1.01); }
-.g-item img {
-  width:100%; display:block;
-  filter:sepia(10%) contrast(1.05);
-  transition:transform 0.6s ease, filter 0.4s ease;
+.g-item:hover .g-over{opacity:1}
+.g-cat{font-family:'Cormorant Garamond',serif;font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.g-title{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--ivory)}
+.g-zoom{
+  position:absolute;top:10px;right:10px;
+  width:30px;height:30px;
+  background:rgba(3,3,9,.72);backdrop-filter:blur(8px);
+  border:1px solid rgba(201,168,76,.2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:14px;
+  opacity:0;transition:opacity .3s;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
 }
-.g-item:hover img { transform:scale(1.05); filter:sepia(0%) contrast(1.1); }
-.g-item-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(180deg,transparent 50%,rgba(4,4,14,0.95) 100%);
-  opacity:0; transition:opacity 0.4s ease;
-  display:flex; flex-direction:column; justify-content:flex-end; padding:1.25rem;
-}
-.g-item:hover .g-item-overlay { opacity:1; }
-.g-item-cat {
-  font-family:var(--font-serif); font-size:8px;
-  letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;
-}
-.g-item-title {
-  font-family:var(--font-display); font-size:0.9rem; color:var(--ivory);
-}
-.g-zoom {
-  position:absolute; top:12px; right:12px;
-  width:32px; height:32px; border-radius:50%;
-  background:rgba(4,4,14,0.7); backdrop-filter:blur(8px);
-  border:1px solid rgba(201,168,76,0.2);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--gold); font-size:13px;
-  opacity:0; transition:opacity 0.3s ease;
-}
-.g-item:hover .g-zoom { opacity:1; }
+.g-item:hover .g-zoom{opacity:1}
 
 /* LIGHTBOX */
-#lb {
-  position:fixed; inset:0; z-index:5000;
-  background:rgba(0,0,0,0.96); backdrop-filter:blur(24px);
-  display:flex; align-items:center; justify-content:center;
-  padding:2rem; opacity:0; pointer-events:none; transition:opacity 0.4s ease;
+#lb{
+  position:fixed;inset:0;z-index:5000;
+  background:rgba(0,0,0,.96);backdrop-filter:blur(24px);
+  display:flex;align-items:center;justify-content:center;
+  padding:2rem;opacity:0;pointer-events:none;transition:opacity .4s;
 }
-#lb.show { opacity:1; pointer-events:auto; }
-.lb-box {
-  max-width:1000px; width:100%; border-radius:4px; overflow:hidden;
-  display:flex; flex-direction:column;
-  border:1px solid rgba(201,168,76,0.12);
-  transform:scale(0.92); transition:transform 0.4s ease;
+#lb.show{opacity:1;pointer-events:auto}
+.lb-box{
+  max-width:1050px;width:100%;overflow:hidden;
+  display:flex;flex-direction:column;
+  border:1px solid rgba(201,168,76,.12);
+  transform:scale(.9) translateY(20px);transition:transform .45s var(--ease);
+  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));
 }
-#lb.show .lb-box { transform:scale(1); }
+#lb.show .lb-box{transform:scale(1) translateY(0)}
 @media(min-width:700px){.lb-box{flex-direction:row}}
-.lb-img-wrap { flex:0 0 55%; position:relative; max-height:80vh; }
-.lb-img-wrap img { width:100%; height:100%; object-fit:cover; }
-.lb-info {
-  flex:1; padding:2.5rem; background:rgba(4,4,14,0.98);
-  display:flex; flex-direction:column; justify-content:center;
+.lb-img-w{flex:0 0 55%;max-height:82vh;overflow:hidden}
+.lb-img-w img{width:100%;height:100%;object-fit:cover}
+.lb-info{flex:1;padding:2.8rem;background:rgba(3,3,9,.98);display:flex;flex-direction:column;justify-content:center}
+.lb-cat{font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:.5em;text-transform:uppercase;color:rgba(201,168,76,.38);margin-bottom:1rem}
+.lb-title{font-family:'Cinzel Decorative',serif;font-size:1.5rem;font-weight:700;color:var(--ivory);margin-bottom:6px}
+.lb-period{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);margin-bottom:1.2rem}
+.lb-desc{font-family:'EB Garamond',serif;font-size:.98rem;line-height:1.78;color:rgba(240,221,184,.48);margin-bottom:1.5rem}
+.lb-museum{font-family:'Cormorant Garamond',serif;font-size:11px;color:rgba(201,168,76,.38);padding:10px 14px;border:1px solid rgba(201,168,76,.08);background:rgba(201,168,76,.04);clip-path:polygon(4px 0,100% 0,calc(100% - 4px) 100%,0 100%)}
+.lb-x{
+  position:absolute;top:1.2rem;right:1.2rem;width:38px;height:38px;
+  background:rgba(3,3,9,.85);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.45);font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  z-index:10;transition:all .3s;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
 }
-.lb-cat { font-family:var(--font-serif); font-size:9px; letter-spacing:0.5em; text-transform:uppercase; color:rgba(201,168,76,0.4); margin-bottom:1rem; }
-.lb-title { font-family:var(--font-display); font-size:1.6rem; font-weight:700; color:var(--ivory); margin-bottom:6px; }
-.lb-period { font-family:var(--font-serif); font-style:italic; color:var(--gold); margin-bottom:1.25rem; }
-.lb-desc { font-family:var(--font-body); font-size:0.95rem; line-height:1.75; color:rgba(240,221,184,0.5); margin-bottom:1.5rem; }
-.lb-museum {
-  font-family:var(--font-serif); font-size:11px;
-  color:rgba(201,168,76,0.4); padding:10px 14px;
-  border:1px solid rgba(201,168,76,0.08); border-radius:3px;
-  background:rgba(201,168,76,0.04);
-}
-.lb-close {
-  position:absolute; top:1.2rem; right:1.2rem;
-  width:38px; height:38px; border-radius:50%;
-  background:rgba(4,4,14,0.8); backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,0.1);
-  color:rgba(255,255,255,0.5); font-size:18px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  transition:all 0.3s ease; z-index:10;
-}
-.lb-close:hover { color:#fff; border-color:rgba(201,168,76,0.4); }
+.lb-x:hover{color:#fff;border-color:var(--gold)}
 
 /* ══════════════════════════════════════
-   ARTICLES / KNOWLEDGE
+   ARTICLES — Editorial layout
 ══════════════════════════════════════ */
-#articles { padding:8rem 0; background:linear-gradient(180deg,transparent,rgba(201,168,76,0.02),transparent); }
-.articles-intro { text-align:center; margin-bottom:5rem; }
-.articles-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:1.5rem;
+#articles{
+  padding:9rem 0;
+  background:linear-gradient(180deg,transparent,rgba(201,168,76,.02),transparent);
 }
-.article-card {
-  border-radius:4px; overflow:hidden;
-  border:1px solid rgba(201,168,76,0.08);
-  background:rgba(255,255,255,0.02);
-  cursor:pointer; transition:all 0.4s ease;
-  position:relative;
+.art-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+.art-card{
+  overflow:hidden;cursor:pointer;
+  border:1px solid rgba(201,168,76,.07);
+  background:rgba(255,255,255,.018);
+  transition:all .5s var(--ease);
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
 }
-.article-card:hover { border-color:rgba(201,168,76,0.25); transform:translateY(-6px); box-shadow:0 30px 60px rgba(0,0,0,0.5); }
-.article-img { width:100%; height:200px; object-fit:cover; filter:sepia(15%); transition:transform 0.5s ease; }
-.article-card:hover .article-img { transform:scale(1.04); }
-.article-body { padding:1.5rem; }
-.article-tag {
-  font-family:var(--font-serif); font-size:9px;
-  letter-spacing:0.4em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:0.75rem;
+.art-card:hover{border-color:rgba(201,168,76,.28);transform:translateY(-8px);box-shadow:0 40px 80px rgba(0,0,0,.55)}
+.art-img{width:100%;height:220px;object-fit:cover;filter:sepia(15%);transition:transform .6s var(--ease),filter .5s}
+.art-card:hover .art-img{transform:scale(1.05);filter:sepia(2%)}
+.art-body{padding:1.6rem}
+.art-tag{font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.art-title{
+  font-family:'Cinzel Decorative',serif;font-size:1.05rem;
+  font-weight:700;color:var(--ivory);line-height:1.35;
+  margin-bottom:.75rem;transition:color .3s;
 }
-.article-title {
-  font-family:var(--font-display); font-size:1.05rem;
-  font-weight:700; color:var(--ivory); line-height:1.35;
-  margin-bottom:0.75rem; transition:color 0.3s ease;
+.art-card:hover .art-title{color:var(--gold2)}
+.art-exc{
+  font-family:'EB Garamond',serif;font-size:.9rem;
+  line-height:1.72;color:rgba(240,221,184,.42);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
 }
-.article-card:hover .article-title { color:var(--gold2); }
-.article-excerpt {
-  font-family:var(--font-body); font-size:0.88rem;
-  line-height:1.7; color:rgba(240,221,184,0.45);
-  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+.art-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:1.2rem;padding-top:1rem;
+  border-top:1px solid rgba(201,168,76,.05);
+  font-family:'Cormorant Garamond',serif;font-size:10px;
+  color:rgba(201,168,76,.28);letter-spacing:.1em;
 }
-.article-meta {
-  display:flex; justify-content:space-between; align-items:center;
-  margin-top:1.25rem; padding-top:1rem;
-  border-top:1px solid rgba(201,168,76,0.06);
-  font-family:var(--font-serif); font-size:10px;
-  color:rgba(201,168,76,0.3); letter-spacing:0.1em;
-}
-.article-read {
-  color:var(--gold); font-size:11px; letter-spacing:0.2em;
-  display:flex; align-items:center; gap:6px; transition:gap 0.3s ease;
-}
-.article-card:hover .article-read { gap:10px; }
+.art-read{color:var(--gold);font-size:11px;letter-spacing:.22em;display:flex;align-items:center;gap:6px;transition:gap .3s}
+.art-card:hover .art-read{gap:12px}
 
-/* ARTICLE MODAL */
-#article-modal {
-  position:fixed; inset:0; z-index:6000;
-  background:rgba(0,0,0,0.97); backdrop-filter:blur(30px);
-  overflow-y:auto; opacity:0; pointer-events:none; transition:opacity 0.4s ease;
+/* Article Modal */
+#art-modal{
+  position:fixed;inset:0;z-index:6000;
+  background:rgba(0,0,0,.97);backdrop-filter:blur(30px);
+  overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .4s;
 }
-#article-modal.show { opacity:1; pointer-events:auto; }
-.article-modal-inner { max-width:800px; margin:0 auto; padding:6rem 2rem 4rem; }
-.article-modal-hero { width:100%; height:400px; object-fit:cover; border-radius:4px; margin-bottom:3rem; filter:sepia(10%); }
-.article-modal-tag { font-family:var(--font-serif); font-size:10px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
-.article-modal-title { font-family:var(--font-display); font-size:clamp(1.8rem,4vw,3rem); font-weight:700; color:var(--ivory); line-height:1.2; margin-bottom:1.5rem; }
-.article-modal-body { font-family:var(--font-body); font-size:1.1rem; line-height:1.9; color:rgba(240,221,184,0.65); }
-.article-modal-body p { margin-bottom:1.5rem; }
-.article-modal-body h3 { font-family:var(--font-display); font-size:1.3rem; color:var(--gold2); margin:2.5rem 0 1rem; }
-.am-close {
-  position:fixed; top:1.5rem; right:1.5rem;
-  width:44px; height:44px; border-radius:50%;
-  background:rgba(4,4,14,0.9); border:1px solid rgba(255,255,255,0.1);
-  color:rgba(255,255,255,0.5); font-size:20px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center; z-index:10;
-  transition:all 0.3s ease;
+#art-modal.show{opacity:1;pointer-events:auto}
+.am-inner{max-width:820px;margin:0 auto;padding:6rem 2rem 5rem}
+.am-hero{width:100%;height:420px;object-fit:cover;margin-bottom:3rem;filter:sepia(10%)}
+.am-tag{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.am-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:var(--ivory);line-height:1.2;margin-bottom:2rem}
+.am-body{font-family:'EB Garamond',serif;font-size:1.12rem;line-height:1.9;color:rgba(240,221,184,.62)}
+.am-body p{margin-bottom:1.6rem}
+.am-body h3{font-family:'Cinzel Decorative',serif;font-size:1.25rem;color:var(--gold2);margin:2.5rem 0 1rem}
+.am-x{
+  position:fixed;top:1.5rem;right:1.5rem;width:44px;height:44px;
+  background:rgba(3,3,9,.9);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.45);font-size:20px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;z-index:10;
+  transition:all .3s;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
 }
-.am-close:hover { color:#fff; border-color:var(--gold); }
+.am-x:hover{color:#fff;border-color:var(--gold)}
 
 /* ══════════════════════════════════════
-   QUOTE SECTION
+   EXPLORE MORE SECTION — New Page
+   Interactive 3D card flip gallery
 ══════════════════════════════════════ */
-#quote-section { padding:8rem 0; text-align:center; }
-.big-quote { max-width:900px; margin:0 auto; padding:0 3rem; }
-.quote-marks {
-  font-family:var(--font-display); font-size:8rem;
-  color:rgba(201,168,76,0.1); line-height:0.5; display:block;
+#explore{padding:9rem 0;overflow:hidden}
+.explore-intro{text-align:center;margin-bottom:5rem}
+.flip-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;padding:0 3.5rem;
 }
-.quote-text {
-  font-family:var(--font-serif); font-style:italic;
-  font-size:clamp(1.3rem,3vw,2rem); line-height:1.65;
-  color:rgba(240,221,184,0.75); margin:1.5rem 0;
+.flip-card{
+  perspective:1000px;height:360px;cursor:pointer;
 }
-.quote-attr {
-  font-family:var(--font-serif); font-size:10px;
-  letter-spacing:0.5em; text-transform:uppercase;
-  color:rgba(201,168,76,0.35);
+.flip-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .8s var(--ease);
 }
+.flip-card:hover .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{
+  position:absolute;inset:0;backface-visibility:hidden;
+  overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+}
+.flip-front img{width:100%;height:100%;object-fit:cover;filter:sepia(15%);transition:filter .5s}
+.flip-front::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(3,3,9,.9) 100%);
+}
+.flip-front-label{
+  position:absolute;bottom:1.5rem;left:1.5rem;z-index:1;
+}
+.flip-front-cat{font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.flip-front-name{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--ivory)}
+.flip-back{
+  background:rgba(3,3,9,.97);
+  border:1px solid rgba(201,168,76,.15);
+  transform:rotateY(180deg);
+  display:flex;flex-direction:column;justify-content:center;padding:2rem;
+}
+.flip-back-era{font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+.flip-back-title{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--ivory);margin-bottom:1rem}
+.flip-back-text{font-family:'EB Garamond',serif;font-size:.9rem;line-height:1.7;color:rgba(240,221,184,.5);margin-bottom:1.5rem}
+.flip-back-btn{
+  font-family:'Cormorant Garamond',serif;font-size:10px;
+  letter-spacing:.3em;text-transform:uppercase;
+  padding:10px 20px;color:var(--ink);background:var(--gold);
+  border:none;cursor:pointer;display:inline-block;text-align:center;
+  transition:background .3s;
+  clip-path:polygon(4px 0,100% 0,calc(100% - 4px) 100%,0 100%);
+}
+.flip-back-btn:hover{background:var(--gold2)}
 
 /* ══════════════════════════════════════
-   LANGUAGES SHOWCASE
+   LANGUAGE MARQUEE
 ══════════════════════════════════════ */
-#lang-showcase { padding:6rem 0; overflow:hidden; }
-.lang-marquee-wrap { overflow:hidden; padding:2rem 0; }
-.lang-marquee {
-  display:flex; gap:3rem; align-items:center;
-  animation:marquee 30s linear infinite;
-  white-space:nowrap; width:max-content;
+#marquee-sec{padding:5rem 0;overflow:hidden}
+.marquee-row{overflow:hidden;padding:.8rem 0;border-top:1px solid rgba(201,168,76,.06);border-bottom:1px solid rgba(201,168,76,.06)}
+.marquee-row:first-child{margin-bottom:.5rem}
+.marquee-inner{display:flex;gap:2rem;width:max-content;align-items:center}
+.marquee-inner.s1{animation:marquee 35s linear infinite}
+.marquee-inner.s2{animation:marquee 45s linear infinite reverse}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mw{
+  font-size:clamp(.9rem,1.8vw,1.3rem);color:rgba(201,168,76,.2);
+  padding:0 1.2rem;border-right:1px solid rgba(201,168,76,.08);
+  transition:color .3s;white-space:nowrap;
 }
-.lang-marquee:hover { animation-play-state:paused; }
-@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-.lang-word {
-  font-size:clamp(1rem,2vw,1.4rem);
-  color:rgba(201,168,76,0.25); padding:0 1.5rem;
-  border-right:1px solid rgba(201,168,76,0.1);
-  transition:color 0.3s ease;
-}
-.lang-word:hover { color:var(--gold); }
-.lang-word.arabic { font-family:var(--font-arabic); }
-.lang-word.chinese { font-family:var(--font-chinese); }
+.mw:hover{color:var(--gold)}
+.mw.ar{font-family:'Noto Naskh Arabic',serif}
+.mw.zh{font-family:'Noto Serif SC',serif}
+.mw.gold{color:rgba(201,168,76,.45)}
 
 /* ══════════════════════════════════════
-   NEWSLETTER
+   NEWSLETTER — Immersive CTA
 ══════════════════════════════════════ */
-#newsletter { padding:6rem 0; }
-.newsletter-box {
-  max-width:700px; margin:0 auto;
-  border:1px solid rgba(201,168,76,0.1); border-radius:4px;
-  padding:4rem; text-align:center;
-  background:rgba(255,255,255,0.015);
-  position:relative; overflow:hidden;
+#newsletter{
+  padding:8rem 0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.08) 0%,transparent 60%);
+  position:relative;overflow:hidden;
 }
-.newsletter-box::before {
-  content:''; position:absolute; top:0; left:20%; right:20%; height:1px;
+#newsletter::before{
+  content:'SUDAN';
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Cinzel Decorative',serif;font-size:25vw;font-weight:900;
+  color:rgba(201,168,76,.018);pointer-events:none;white-space:nowrap;letter-spacing:.1em;
+}
+.nl-box{
+  max-width:680px;margin:0 auto;text-align:center;padding:5rem 3rem;
+  border:1px solid rgba(201,168,76,.1);
+  background:rgba(255,255,255,.02);
+  position:relative;overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,24px 100%,0 calc(100% - 24px));
+}
+.nl-box::before{
+  content:'';position:absolute;top:0;left:20%;right:20%;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
-.newsletter-title { font-family:var(--font-display); font-size:1.8rem; color:var(--ivory); margin-bottom:0.75rem; }
-.newsletter-sub { font-family:var(--font-serif); font-style:italic; color:rgba(232,200,154,0.5); margin-bottom:2.5rem; }
-.newsletter-form { display:flex; gap:0; max-width:460px; margin:0 auto; }
-.newsletter-input {
-  flex:1; padding:14px 20px;
-  background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.15);
-  border-right:none; border-radius:40px 0 0 40px;
-  color:var(--sand2); font-family:var(--font-body); font-size:0.9rem;
-  outline:none; transition:border-color 0.3s ease;
+.nl-box::after{
+  content:'';position:absolute;bottom:0;left:20%;right:20%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--golddim),transparent);
 }
-.newsletter-input:focus { border-color:rgba(201,168,76,0.4); }
-.newsletter-input::placeholder { color:rgba(201,168,76,0.25); }
-.newsletter-btn {
-  padding:14px 28px;
-  background:linear-gradient(135deg,var(--gold-dim),var(--gold));
-  border:none; border-radius:0 40px 40px 0;
-  color:var(--ink); font-family:var(--font-serif);
-  font-size:10px; letter-spacing:0.3em; text-transform:uppercase;
-  font-weight:700; cursor:pointer; transition:all 0.3s ease;
+.nl-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--ivory);margin-bottom:.75rem}
+.nl-sub{font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(232,200,154,.45);margin-bottom:2.5rem;font-size:1.1rem}
+.nl-form{display:flex;gap:0;max-width:460px;margin:0 auto}
+.nl-input{
+  flex:1;padding:15px 22px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);
+  border-right:none;color:var(--sand2);font-family:'EB Garamond',serif;font-size:.95rem;
+  outline:none;transition:border-color .3s;
 }
-.newsletter-btn:hover { filter:brightness(1.15); }
+.nl-input:focus{border-color:rgba(201,168,76,.45)}
+.nl-input::placeholder{color:rgba(201,168,76,.22)}
+.nl-btn{
+  padding:15px 28px;background:linear-gradient(135deg,var(--golddim),var(--gold));
+  border:none;color:var(--ink);font-family:'Cormorant Garamond',serif;
+  font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;
+  cursor:pointer;transition:filter .3s;
+  clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%);
+}
+.nl-btn:hover{filter:brightness(1.2)}
 
 /* ══════════════════════════════════════
    FOOTER
 ══════════════════════════════════════ */
-footer {
-  padding:6rem 0 3rem;
-  border-top:1px solid rgba(201,168,76,0.07);
+footer{
+  padding:7rem 0 3rem;
+  border-top:1px solid rgba(201,168,76,.07);
   background:linear-gradient(180deg,var(--ink),var(--ink2));
 }
-.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:4rem; margin-bottom:5rem; }
-.footer-brand-name { font-family:var(--font-display); font-size:1.3rem; font-weight:700;
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:5rem}
+.ft-brand{font-family:'Cinzel Decorative',serif;font-size:1.2rem;font-weight:700;
   background:linear-gradient(135deg,var(--gold3),var(--gold));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:0.75rem;
+  margin-bottom:.75rem}
+.ft-desc{font-family:'EB Garamond',serif;font-size:.9rem;line-height:1.7;color:rgba(201,168,76,.28);max-width:280px}
+.ft-social{display:flex;gap:8px;margin-top:1.5rem}
+.s-btn{
+  width:36px;height:36px;
+  border:1px solid rgba(201,168,76,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(201,168,76,.32);font-size:13px;cursor:pointer;
+  transition:all .35s;text-decoration:none;
+  clip-path:polygon(4px 0,100% 0,calc(100% - 4px) 100%,0 100%);
 }
-.footer-brand-desc { font-family:var(--font-body); font-size:0.9rem; line-height:1.7; color:rgba(201,168,76,0.3); max-width:280px; }
-.footer-social { display:flex; gap:10px; margin-top:1.5rem; }
-.social-btn {
-  width:36px; height:36px; border-radius:50%;
-  border:1px solid rgba(201,168,76,0.12);
-  display:flex; align-items:center; justify-content:center;
-  color:rgba(201,168,76,0.35); font-size:14px;
-  cursor:pointer; transition:all 0.3s ease;
-  text-decoration:none;
+.s-btn:hover{border-color:rgba(201,168,76,.45);color:var(--gold);background:rgba(201,168,76,.08)}
+.ft-h{
+  font-family:'Cormorant Garamond',serif;font-size:9px;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:rgba(201,168,76,.3);margin-bottom:1.4rem;
+  padding-bottom:.75rem;border-bottom:1px solid rgba(201,168,76,.06);
 }
-.social-btn:hover { border-color:rgba(201,168,76,0.4); color:var(--gold); background:rgba(201,168,76,0.08); }
-.footer-col-title {
-  font-family:var(--font-serif); font-size:9px;
-  letter-spacing:0.4em; text-transform:uppercase;
-  color:rgba(201,168,76,0.35); margin-bottom:1.5rem;
-  padding-bottom:0.75rem; border-bottom:1px solid rgba(201,168,76,0.06);
+.ft-col ul{list-style:none}
+.ft-col li{margin-bottom:.65rem}
+.ft-col a{
+  font-family:'Cormorant Garamond',serif;font-size:13px;
+  color:rgba(201,168,76,.27);cursor:pointer;
+  transition:color .3s;display:flex;align-items:center;gap:0;
 }
-.footer-col ul { list-style:none; }
-.footer-col li { margin-bottom:0.7rem; }
-.footer-col a {
-  font-family:var(--font-serif); font-size:13px;
-  color:rgba(201,168,76,0.3); text-decoration:none; cursor:pointer;
-  transition:color 0.3s ease; display:flex; align-items:center; gap:6px;
+.ft-col a:hover{color:rgba(201,168,76,.75)}
+.ft-bottom{
+  padding-top:2rem;border-top:1px solid rgba(201,168,76,.05);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
 }
-.footer-col a::before { content:''; width:0; height:1px; background:var(--gold); transition:width 0.3s ease; }
-.footer-col a:hover { color:rgba(201,168,76,0.8); }
-.footer-col a:hover::before { width:12px; }
-.footer-bottom {
-  padding-top:2rem; border-top:1px solid rgba(201,168,76,0.06);
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
-}
-.footer-copy { font-family:var(--font-serif); font-size:11px; color:rgba(201,168,76,0.2); }
-.footer-pulse { display:flex; align-items:center; gap:8px; font-family:var(--font-serif); font-size:10px; color:rgba(201,168,76,0.2); letter-spacing:0.2em; }
-.pulse-dot { width:6px; height:6px; border-radius:50%; background:rgba(201,168,76,0.4); animation:pDot 2s ease-in-out infinite; }
-@keyframes pDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.7)}}
+.ft-copy{font-family:'Cormorant Garamond',serif;font-size:11px;color:rgba(201,168,76,.18)}
+.ft-live{display:flex;align-items:center;gap:8px;font-family:'Cormorant Garamond',serif;font-size:10px;color:rgba(201,168,76,.18);letter-spacing:.2em}
+.ft-dot{width:6px;height:6px;border-radius:50%;background:rgba(201,168,76,.45);animation:liveDot 2s ease-in-out infinite}
+@keyframes liveDot{0%,100%{opacity:1;box-shadow:0 0 6px var(--gold)}50%{opacity:.3;box-shadow:none}}
 
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
-@media(max-width:1100px){
-  .about-grid { grid-template-columns:1fr; gap:3rem; }
-  .map-layout { grid-template-columns:1fr; }
-  .loc-panel { position:static; display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
-  .loc-panel-header { grid-column:1/-1; }
-  .footer-grid { grid-template-columns:1fr 1fr; }
-  .gallery-masonry { columns:2; }
+@media(max-width:1200px){
+  .about-split{grid-template-columns:1fr}
+  .about-visual{height:55vw;max-height:500px}
+  .map-layout{grid-template-columns:1fr}
+  .loc-panel{position:static;display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+  .loc-header{grid-column:1/-1}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .gal-masonry{columns:2}
 }
 @media(max-width:768px){
-  .container { padding:0 1.5rem; }
-  .nav-center { display:none; }
-  .hamburger { display:flex; }
-  #nav { padding:1.2rem 1.5rem; }
-  #nav.solid { padding:0.8rem 1.5rem; }
-  .timeline-cards { padding:0 1.5rem 1.5rem; }
-  .gallery-masonry { columns:1; padding:0 1.5rem; }
-  .footer-grid { grid-template-columns:1fr; gap:2.5rem; }
-  .newsletter-form { flex-direction:column; }
-  .newsletter-input { border-right:1px solid rgba(201,168,76,0.15); border-radius:40px; }
-  .newsletter-btn { border-radius:40px; }
-  body { cursor:auto; }
-  #cursor, #cursor-ring { display:none; }
-  .about-img { aspect-ratio:16/9; }
-  .loc-panel { grid-template-columns:1fr; }
+  .wrap{padding:0 1.5rem}
+  .n-links{display:none}
+  .hamburger{display:flex}
+  #nav{padding:1.2rem 1.5rem}
+  #nav.solid{padding:.85rem 1.5rem}
+  .tl-scroll{padding:0 1.5rem 1.5rem}
+  .gal-masonry{columns:1;padding:0 1.5rem}
+  .flip-grid{padding:0 1.5rem}
+  .ft-grid{grid-template-columns:1fr}
+  .nl-form{flex-direction:column}
+  .nl-input{border-right:1px solid rgba(201,168,76,.15)}
+  .nl-btn{clip-path:none}
+  body{cursor:auto}
+  #cur,#curR{display:none}
+  .about-text-block{padding:3rem 1.8rem}
+  .loc-panel{grid-template-columns:1fr}
+  .era-card{width:300px;height:500px}
+  .stat-block{padding:2rem 1rem}
 }
 
 /* RTL */
-[dir="rtl"] .nav-center { flex-direction:row-reverse; }
-[dir="rtl"] .about-grid { direction:rtl; }
-[dir="rtl"] .footer-grid { direction:rtl; }
-[dir="rtl"] .ornament::before { background:linear-gradient(90deg,rgba(201,168,76,0.4),transparent); }
-[dir="rtl"] .ornament::after { background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4)); }
-[dir="rtl"] .footer-col a::before { display:none; }
-[dir="rtl"] .lang-dropdown { right:auto; left:0; }
+[dir=rtl] .n-links{flex-direction:row-reverse}
+[dir=rtl] .about-split{direction:rtl}
+[dir=rtl] .ft-grid{direction:rtl}
+[dir=rtl] .orn::before{background:linear-gradient(270deg,transparent,rgba(201,168,76,.35))}
+[dir=rtl] .orn::after{background:linear-gradient(90deg,transparent,rgba(201,168,76,.35))}
+[dir=rtl] .lang-drop{right:auto;left:0}
 </style>
 </head>
 <body>
 
-<!-- CURSOR -->
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-
-<!-- GRAIN -->
+<div id="cur"></div>
+<div id="curR"></div>
 <div id="grain"></div>
+<div id="pgbar"></div>
 
-<!-- PROGRESS -->
-<div id="progress-bar"></div>
-
-<!-- ═══ LOADER ═══ -->
+<!-- ═══════════ LOADER ═══════════ -->
 <div id="loader">
-  <div class="loader-bg">
-    <!-- Mandala background -->
-    <svg class="loader-mandala" width="800" height="800" viewBox="0 0 800 800">
-      <g transform="translate(400,400)">
-        <circle r="100" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
-        <circle r="150" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/>
-        <circle r="200" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
-        <circle r="280" fill="none" stroke="rgba(201,168,76,0.06)" stroke-width="0.5"/>
-        <circle r="350" fill="none" stroke="rgba(201,168,76,0.04)" stroke-width="0.5"/>
-        <g stroke="rgba(201,168,76,0.08)" stroke-width="0.5">
-          <line x1="0" y1="-350" x2="0" y2="350"/>
-          <line x1="-350" y1="0" x2="350" y2="0"/>
-          <line x1="-247" y1="-247" x2="247" y2="247"/>
-          <line x1="247" y1="-247" x2="-247" y2="247"/>
-          <line x1="-133" y1="-320" x2="133" y2="320"/>
-          <line x1="133" y1="-320" x2="-133" y2="320"/>
-          <line x1="-320" y1="-133" x2="320" y2="133"/>
-          <line x1="-320" y1="133" x2="320" y2="-133"/>
-        </g>
-        <polygon points="0,-180 156,-90 156,90 0,180 -156,90 -156,-90" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/>
-        <polygon points="0,-240 208,-120 208,120 0,240 -208,120 -208,-120" fill="none" stroke="rgba(201,168,76,0.06)" stroke-width="0.5"/>
+  <!-- Mandala background -->
+  <svg class="ld-mandala" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" width="900" height="900" viewBox="0 0 900 900" opacity=".07">
+    <g transform="translate(450,450)">
+      <circle r="80" fill="none" stroke="#C9A84C" stroke-width=".5"/>
+      <circle r="130" fill="none" stroke="#C9A84C" stroke-width=".5"/>
+      <circle r="200" fill="none" stroke="#C9A84C" stroke-width=".4"/>
+      <circle r="280" fill="none" stroke="#C9A84C" stroke-width=".3"/>
+      <circle r="360" fill="none" stroke="#C9A84C" stroke-width=".3"/>
+      <circle r="420" fill="none" stroke="#C9A84C" stroke-width=".2"/>
+      <g stroke="#C9A84C" stroke-width=".4">
+        <line x1="0" y1="-420" x2="0" y2="420"/>
+        <line x1="-420" y1="0" x2="420" y2="0"/>
+        <line x1="-297" y1="-297" x2="297" y2="297"/>
+        <line x1="297" y1="-297" x2="-297" y2="297"/>
+        <line x1="-160" y1="-386" x2="160" y2="386"/>
+        <line x1="160" y1="-386" x2="-160" y2="386"/>
+        <line x1="-386" y1="-160" x2="386" y2="160"/>
+        <line x1="-386" y1="160" x2="386" y2="-160"/>
+        <line x1="-60" y1="-415" x2="60" y2="415"/>
+        <line x1="60" y1="-415" x2="-60" y2="415"/>
+        <line x1="-415" y1="-60" x2="415" y2="60"/>
+        <line x1="-415" y1="60" x2="415" y2="-60"/>
       </g>
-    </svg>
-    <!-- Stars -->
-    <div id="loader-stars"></div>
-  </div>
-  <div class="loader-content">
-    <!-- Eye of Horus SVG -->
-    <svg class="loader-eye" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,-200 173,-100 173,100 0,200 -173,100 -173,-100" fill="none" stroke="#C9A84C" stroke-width=".4"/>
+      <polygon points="0,-280 242,-140 242,140 0,280 -242,140 -242,-140" fill="none" stroke="#C9A84C" stroke-width=".3"/>
+      <polygon points="0,-350 303,-175 303,175 0,350 -303,175 -303,-175" fill="none" stroke="#C9A84C" stroke-width=".2"/>
+    </g>
+  </svg>
+  <div id="ld-stars"></div>
+  <div style="position:relative;z-index:2;text-align:center">
+    <!-- Eye of Horus -->
+    <svg style="width:90px;height:90px;margin:0 auto 1.5rem;animation:eyeGlow 3s ease-in-out infinite" viewBox="0 0 100 70" fill="none">
       <defs>
         <linearGradient id="eg" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#F5E090"/>
@@ -1111,287 +1060,237 @@ footer {
           <stop offset="100%" stop-color="#7A5E20"/>
         </linearGradient>
       </defs>
-      <!-- Eye outline -->
-      <path d="M10 35 Q30 5 50 35 Q70 5 90 35 Q70 65 50 35 Q30 65 10 35Z" fill="none" stroke="url(#eg)" stroke-width="1.5"/>
-      <!-- Iris -->
+      <path d="M8 35 Q28 3 50 35 Q72 3 92 35 Q72 67 50 35 Q28 67 8 35Z" fill="none" stroke="url(#eg)" stroke-width="1.5"/>
       <circle cx="50" cy="35" r="10" fill="none" stroke="url(#eg)" stroke-width="1.2"/>
-      <!-- Pupil -->
-      <circle cx="50" cy="35" r="4" fill="url(#eg)"/>
-      <!-- Tear lines (Horus marks) -->
-      <path d="M42 44 L36 58 L42 62" fill="none" stroke="url(#eg)" stroke-width="1" stroke-linecap="round"/>
-      <path d="M50 45 L50 62" fill="none" stroke="url(#eg)" stroke-width="1" stroke-linecap="round"/>
-      <path d="M58 44 L64 58 L58 62" fill="none" stroke="url(#eg)" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="50" cy="35" r="4.5" fill="url(#eg)"/>
+      <path d="M40 44 L34 60 L41 63" fill="none" stroke="url(#eg)" stroke-width="1" stroke-linecap="round"/>
+      <path d="M50 45 L50 63" fill="none" stroke="url(#eg)" stroke-width="1" stroke-linecap="round"/>
+      <path d="M60 44 L66 60 L59 63" fill="none" stroke="url(#eg)" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="20" cy="12" r="1.5" fill="#C9A84C" opacity=".5"/>
+      <circle cx="80" cy="8" r="1" fill="#C9A84C" opacity=".4"/>
     </svg>
-    <h1 class="loader-title">SUDAN</h1>
-    <p class="loader-sub">Heritage · التراث · 遗产</p>
-    <div class="loader-bar-wrap"><div id="loader-fill"></div></div>
-    <p id="loader-msg">Awakening the Nile...</p>
-    <p id="loader-pct">0%</p>
+    <style>@keyframes eyeGlow{0%,100%{filter:drop-shadow(0 0 10px rgba(201,168,76,.3))}50%{filter:drop-shadow(0 0 35px rgba(201,168,76,.9))}}</style>
+    <div class="ld-counter" id="ldNum">0</div>
+    <div class="ld-sub">SUDAN HERITAGE &nbsp;·&nbsp; التراث السوداني &nbsp;·&nbsp; 苏丹遗产</div>
   </div>
+  <div class="ld-bar" id="ldBar" style="width:0%"></div>
 </div>
 
-<!-- ═══ NAVBAR ═══ -->
+<!-- ═══════════ NAVBAR ═══════════ -->
 <nav id="nav">
-  <div class="nav-logo" onclick="scrollTo({top:0,behavior:'smooth'})">
-    <svg width="42" height="42" viewBox="0 0 60 60" fill="none">
-      <defs>
-        <linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#F5E090"/>
-          <stop offset="100%" stop-color="#7A5E20"/>
-        </linearGradient>
-      </defs>
-      <!-- Pyramid -->
+  <div class="n-logo" onclick="scrollTo({top:0,behavior:'smooth'})">
+    <svg width="44" height="44" viewBox="0 0 60 60" fill="none">
+      <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5E090"/><stop offset="100%" stop-color="#7A5E20"/></linearGradient></defs>
       <polygon points="30,5 55,52 5,52" fill="none" stroke="url(#ng)" stroke-width="1.2"/>
-      <line x1="30" y1="5" x2="30" y2="52" stroke="url(#ng)" stroke-width="0.4" opacity="0.4"/>
-      <line x1="17" y1="28" x2="43" y2="28" stroke="url(#ng)" stroke-width="0.4" opacity="0.4"/>
-      <!-- Eye -->
+      <line x1="30" y1="5" x2="30" y2="52" stroke="url(#ng)" stroke-width=".4" opacity=".3"/>
+      <line x1="17" y1="28" x2="43" y2="28" stroke="url(#ng)" stroke-width=".4" opacity=".3"/>
       <ellipse cx="30" cy="30" rx="6" ry="4" fill="none" stroke="url(#ng)" stroke-width="1"/>
       <circle cx="30" cy="30" r="2" fill="url(#ng)"/>
-      <!-- Stars -->
-      <circle cx="10" cy="12" r="1" fill="#C9A84C" opacity="0.5"/>
-      <circle cx="50" cy="10" r="0.8" fill="#C9A84C" opacity="0.4"/>
+      <circle cx="10" cy="12" r="1" fill="#C9A84C" opacity=".5"/>
+      <circle cx="50" cy="9" r=".8" fill="#C9A84C" opacity=".4"/>
     </svg>
-    <div class="nav-wordmark">SUDAN<small>HERITAGE · التراث</small></div>
+    <div class="n-mark">SUDAN<small>HERITAGE · التراث</small></div>
   </div>
-  <div class="nav-center" id="navCenter">
-    <span class="nav-link" onclick="scrollToId('about')" data-key="navAbout">About</span>
-    <span class="nav-link" onclick="scrollToId('timeline')" data-key="navTimeline">Timeline</span>
-    <span class="nav-link" onclick="scrollToId('map')" data-key="navMap">Map</span>
-    <span class="nav-link" onclick="scrollToId('gallery')" data-key="navGallery">Gallery</span>
-    <span class="nav-link" onclick="scrollToId('articles')" data-key="navArticles">Articles</span>
+  <div class="n-links" id="navLinks">
+    <span class="n-link" onclick="go('about')" data-key="navAbout">About</span>
+    <span class="n-link" onclick="go('timeline')" data-key="navTimeline">Timeline</span>
+    <span class="n-link" onclick="go('map')" data-key="navMap">Map</span>
+    <span class="n-link" onclick="go('gallery')" data-key="navGallery">Gallery</span>
+    <span class="n-link" onclick="go('explore')" data-key="navExplore">Explore</span>
+    <span class="n-link" onclick="go('articles')" data-key="navArticles">Articles</span>
   </div>
-  <div class="nav-right">
-    <!-- Audio -->
-    <button class="nav-btn" id="audioBtn" onclick="toggleAudio()" title="Ambient Sound">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" id="audioIcon">
+  <div class="n-right">
+    <button class="n-btn" onclick="toggleAudio()" id="audioBtn" title="Ambient Sound">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" id="aIcon">
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
       </svg>
     </button>
-    <!-- Language -->
     <div class="lang-wrap">
-      <button class="nav-btn" id="langBtn" onclick="toggleLang()">
+      <button class="n-btn" onclick="toggleLang()" id="langBtn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
       </button>
-      <div class="lang-dropdown" id="langDrop">
-        <div class="lang-opt on" onclick="setLang('en')"><span class="lang-flag">🇬🇧</span><span class="lang-name">English</span><span class="lang-native">English</span></div>
-        <div class="lang-opt" onclick="setLang('ar')"><span class="lang-flag">🇸🇩</span><span class="lang-name">Arabic</span><span class="lang-native">العربية</span></div>
-        <div class="lang-opt" onclick="setLang('fr')"><span class="lang-flag">🇫🇷</span><span class="lang-name">French</span><span class="lang-native">Français</span></div>
-        <div class="lang-opt" onclick="setLang('es')"><span class="lang-flag">🇪🇸</span><span class="lang-name">Spanish</span><span class="lang-native">Español</span></div>
-        <div class="lang-opt" onclick="setLang('zh')"><span class="lang-flag">🇨🇳</span><span class="lang-name">Chinese</span><span class="lang-native">中文</span></div>
+      <div class="lang-drop" id="langDrop">
+        <div class="l-opt on" onclick="setLang('en')"><span>🇬🇧</span><span>English</span></div>
+        <div class="l-opt" onclick="setLang('ar')"><span>🇸🇩</span><span>العربية</span></div>
+        <div class="l-opt" onclick="setLang('fr')"><span>🇫🇷</span><span>Français</span></div>
+        <div class="l-opt" onclick="setLang('es')"><span>🇪🇸</span><span>Español</span></div>
+        <div class="l-opt" onclick="setLang('zh')"><span>🇨🇳</span><span>中文</span></div>
       </div>
     </div>
-    <!-- Hamburger -->
-    <button class="hamburger" id="hamburger" onclick="toggleMobile()">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hbg" onclick="toggleMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-  <span class="nav-link" onclick="scrollToId('about');toggleMobile()" data-key="navAbout">About</span>
-  <span class="nav-link" onclick="scrollToId('timeline');toggleMobile()" data-key="navTimeline">Timeline</span>
-  <span class="nav-link" onclick="scrollToId('map');toggleMobile()" data-key="navMap">Map</span>
-  <span class="nav-link" onclick="scrollToId('gallery');toggleMobile()" data-key="navGallery">Gallery</span>
-  <span class="nav-link" onclick="scrollToId('articles');toggleMobile()" data-key="navArticles">Articles</span>
+<div class="mob-nav" id="mobNav">
+  <span class="n-link" onclick="go('about');toggleMob()" data-key="navAbout">About</span>
+  <span class="n-link" onclick="go('timeline');toggleMob()" data-key="navTimeline">Timeline</span>
+  <span class="n-link" onclick="go('map');toggleMob()" data-key="navMap">Map</span>
+  <span class="n-link" onclick="go('gallery');toggleMob()" data-key="navGallery">Gallery</span>
+  <span class="n-link" onclick="go('explore');toggleMob()" data-key="navExplore">Explore</span>
+  <span class="n-link" onclick="go('articles');toggleMob()" data-key="navArticles">Articles</span>
 </div>
 
-<!-- ═══ HERO ═══ -->
+<!-- ═══════════ HERO ═══════════ -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
-  <div class="hero-vignette"></div>
-  <div class="hero-bottom"></div>
-  <div class="hero-content">
-    <div class="hero-rule"></div>
-    <p class="hero-kicker" data-key="heroBadge">The World's Premier Digital Museum of African Heritage</p>
-    <h1 class="hero-title" data-key="heroTitle">SUDAN</h1>
-    <p class="hero-subtitle" data-key="heroSubtitle">5,000 Years of Civilization</p>
-    <p class="hero-tagline" data-key="heroTagline">Where Humanity's Story Begins</p>
-    <div class="hero-cta-row">
-      <button class="btn-gold" onclick="scrollToId('timeline')">Explore the Timeline</button>
-      <button class="btn-outline" onclick="scrollToId('gallery')">Enter the Museum</button>
+  <div class="h-vig"></div>
+  <div class="h-bot"></div>
+  <div class="h-content">
+    <p class="h-eyebrow" data-key="heroBadge">The World's Premier Digital Museum of African Heritage</p>
+    <div class="h-title-wrap">
+      <span class="h-title" data-key="heroTitle">SUDAN</span>
+    </div>
+    <div class="h-rule"></div>
+    <p class="h-sub" data-key="heroSub">5,000 Years of Civilization</p>
+    <p class="h-tagline" data-key="heroTag">Where Humanity's Story Begins</p>
+    <div class="h-cta-row">
+      <button class="btn-p" onclick="go('timeline')">Explore the Timeline</button>
+      <button class="btn-s" onclick="go('gallery')">Enter the Museum</button>
     </div>
   </div>
-  <div class="hero-corners">
-    <div class="c tl"></div><div class="c tr"></div>
-    <div class="c bl"></div><div class="c br"></div>
+  <div class="h-corners">
+    <div class="co tl"></div><div class="co tr"></div>
+    <div class="co bl"></div><div class="co br"></div>
   </div>
-  <div class="scroll-indicator" onclick="scrollToId('about')">
+  <div class="scroll-cue" onclick="go('stats')">
     <span data-key="heroScroll">Scroll to Explore</span>
     <div class="scroll-mouse"></div>
   </div>
 </section>
 
-<!-- ═══ STATS ═══ -->
-<section id="stats">
-  <div class="container">
-    <div class="stats-grid reveal">
-      <div class="stat-item"><div class="stat-num" data-target="5000">0</div><div class="stat-label">Years of History</div></div>
-      <div class="stat-item"><div class="stat-num" data-target="255">0</div><div class="stat-label">Ancient Pyramids</div></div>
-      <div class="stat-item"><div class="stat-num" data-target="500">0</div><div class="stat-label">Ethnic Groups</div></div>
-      <div class="stat-item"><div class="stat-num" data-target="400">0</div><div class="stat-label">Languages Spoken</div></div>
-      <div class="stat-item"><div class="stat-num" data-target="3000">0</div><div class="stat-label">Archaeological Sites</div></div>
-    </div>
-  </div>
-</section>
+<!-- ═══════════ STATS ═══════════ -->
+<section id="stats"><div class="stats-ticker rev" id="statsTicker"></div></section>
 
-<!-- DIVIDER -->
-<div class="divider"><div class="divider-icon">✦</div></div>
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
 
-<!-- ═══ ABOUT ═══ -->
-<section id="about">
-  <div class="container section-pad">
-    <div class="about-grid">
-      <div class="about-image-wrap reveal-left">
-        <img class="about-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg" alt="Meroe Pyramids"/>
-        <div class="about-img-frame"></div>
-        <div class="about-gold-bar"></div>
-      </div>
-      <div class="about-text reveal-right">
-        <div class="ornament">The Story</div>
-        <blockquote class="about-quote">
-          Sudan is the land where <span>civilization was not borrowed</span> — it was born.
-        </blockquote>
-        <p class="about-body">
-          Long before the great empires of Rome or Greece, the Nile Valley of Sudan was the cradle of one of humanity's most extraordinary civilizations. The Kingdom of Kerma, the Black Pharaohs of the 25th Dynasty, the pyramids of Meroe — these are not footnotes to history. They are its very foundation.
-        </p>
-        <div class="about-detail">
-          <div class="about-dot"></div>
-          <p>Sudan possesses more ancient pyramids than Egypt — 255 versus Egypt's 138 — yet remains one of the least explored civilizations on Earth.</p>
-        </div>
-        <div class="about-detail">
-          <div class="about-dot"></div>
-          <p>The Meroitic script, developed around 300 BC, remains one of the last undeciphered writing systems of the ancient world.</p>
-        </div>
-        <div class="about-detail">
-          <div class="about-dot"></div>
-          <p>Nubian queens — the Kandakes — commanded armies and ruled empires at a time when most of the world had no concept of female leadership.</p>
-        </div>
-        <div style="margin-top:2.5rem">
-          <button class="btn-outline" onclick="scrollToId('articles')">Read Our Articles →</button>
-        </div>
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about" class="sec">
+  <div class="about-split">
+    <div class="about-visual rev-l">
+      <img class="about-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg" alt="Meroe Pyramids"/>
+      <div class="about-img-overlay">
+        <div class="about-img-stat">255+</div>
+        <div class="about-img-statl">Ancient Pyramids in Sudan</div>
       </div>
     </div>
-  </div>
-</section>
-
-<div class="divider"><div class="divider-icon">✦</div></div>
-
-<!-- ═══ TIMELINE ═══ -->
-<section id="timeline">
-  <div class="section-pad">
-    <div class="container timeline-intro reveal">
-      <div class="ornament" data-key="timelineOrnament">Chronicle</div>
-      <h2 class="section-title" data-key="timelineTitle">River of Time</h2>
-      <p class="section-sub" data-key="timelineSub">Five thousand years of glory — one civilization</p>
-    </div>
-    <!-- Nav pills -->
-    <div class="container" style="margin-bottom:3rem">
-      <div class="timeline-nav reveal" id="timelineNav">
-        <div class="t-nav-bg" id="tNavBg"></div>
-      </div>
-    </div>
-    <div class="timeline-cards" id="timelineCards"></div>
-  </div>
-</section>
-
-<div class="divider"><div class="divider-icon">✦</div></div>
-
-<!-- ═══ QUOTE ═══ -->
-<section id="quote-section">
-  <div class="container">
-    <div class="big-quote reveal">
-      <span class="quote-marks">"</span>
-      <p class="quote-text">The monuments of Sudan are more numerous than those of Egypt. Nubian civilization is one of the oldest in the world — and one of the most criminally overlooked.</p>
-      <span class="quote-marks" style="display:block;text-align:right">"</span>
-      <p class="quote-attr">— UNESCO World Heritage Committee</p>
+    <div class="about-text-block rev-r">
+      <div class="orn" data-key="aboutOrn">The Story</div>
+      <blockquote class="about-quote-big">Sudan is the land where <span>civilization was not borrowed</span> — it was born.</blockquote>
+      <p class="about-body-text">Long before Rome or Greece, the Nile Valley of Sudan was humanity's most extraordinary cradle. The Kingdom of Kerma, the Black Pharaohs of the 25th Dynasty, the iron empire of Meroe — these are not footnotes to history. They are its very foundation.</p>
+      <ul class="about-list">
+        <li>Sudan has more ancient pyramids than Egypt — 255 versus 138 — yet remains one of the least explored civilizations on Earth.</li>
+        <li>The Meroitic script, developed around 300 BC, remains one of the last undeciphered writing systems of the ancient world.</li>
+        <li>Nubian queens — the Kandakes — commanded armies and negotiated with Rome at a time when most cultures had no concept of female sovereignty.</li>
+        <li>The Funj Sultanate's coral city of Suakin was East Africa's greatest port, built entirely without mortar from the Red Sea floor.</li>
+      </ul>
+      <button class="btn-s" onclick="go('articles')">Read Our Articles →</button>
     </div>
   </div>
 </section>
 
-<div class="divider"><div class="divider-icon">✦</div></div>
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
 
-<!-- ═══ MAP ═══ -->
-<section id="map">
-  <div class="container section-pad">
-    <div class="container reveal" style="text-align:center;margin-bottom:5rem;padding:0">
-      <div class="ornament" data-key="mapOrnament">Sacred Sites</div>
-      <h2 class="section-title" data-key="mapTitle">Virtual Explorer</h2>
-      <p class="section-sub" data-key="mapSub">Navigate the sacred geography of ancient Nubia</p>
+<!-- ═══════════ TIMELINE ═══════════ -->
+<section id="timeline" class="sec">
+  <div class="sp">
+    <div class="wrap tl-intro rev">
+      <div class="orn" data-key="tlOrn">Chronicle</div>
+      <h2 class="sec-h" data-key="tlTitle">River of Time</h2>
+      <p class="sec-s" data-key="tlSub">Five thousand years of glory — one unbroken civilization</p>
+    </div>
+    <div class="wrap"><div class="era-nav rev" id="eraNv"><div class="era-nav-bg" id="eraBg"></div></div></div>
+    <div class="tl-scroll" id="tlScroll"></div>
+  </div>
+</section>
+
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
+
+<!-- ═══════════ PARALLAX QUOTE ═══════════ -->
+<section id="pquote">
+  <div class="pq-wrap rev">
+    <p class="pq-text">"The civilization of ancient Sudan rivals anything Egypt produced — yet the world has barely begun to look. Every pyramid, every inscription, every grain of desert sand in the Nile Valley carries a story that belongs to all of humanity."</p>
+    <p class="pq-attr">— Dr. Timothy Kendall, Harvard University · Nubian Archaeology</p>
+  </div>
+</section>
+
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
+
+<!-- ═══════════ MAP ═══════════ -->
+<section id="map" class="sec sp">
+  <div class="wrap">
+    <div class="rev" style="text-align:center;margin-bottom:5rem">
+      <div class="orn" data-key="mapOrn">Sacred Sites</div>
+      <h2 class="sec-h" data-key="mapTitle">Virtual Explorer</h2>
+      <p class="sec-s" data-key="mapSub">Navigate the sacred geography of ancient Nubia</p>
     </div>
     <div class="map-layout">
-      <div class="map-frame reveal-left" id="mapFrame">
-        <div class="map-grid-lines"></div>
+      <div class="map-frame rev-l" id="mapFrame">
+        <!-- Grid SVG -->
+        <svg class="map-grid-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M10 0L0 0 0 10" fill="none" stroke="#C9A84C" stroke-width=".3"/>
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#g)"/>
+        </svg>
         <div class="map-glow"></div>
-        <div class="map-title-overlay">REPUBLIC OF SUDAN — 1,886,068 km²</div>
-        <!-- Sudan SVG outline -->
+        <div class="map-label">REPUBLIC OF SUDAN — 1,886,068 km²</div>
+        <!-- Sudan SVG -->
         <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:2" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
-            <linearGradient id="nileG" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="rgba(68,140,220,0.6)"/>
-              <stop offset="100%" stop-color="rgba(68,140,220,0.15)"/>
+            <linearGradient id="nile-g" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="rgba(68,140,220,.7)"/>
+              <stop offset="100%" stop-color="rgba(68,140,220,.15)"/>
             </linearGradient>
           </defs>
-          <!-- Sudan border -->
-          <path d="M 28 10 L 32 8 L 46 10 L 51 8 L 65 12 L 72 18 L 76 26 L 79 34 L 80 43 L 76 56 L 71 66 L 65 72 L 58 76 L 52 79 L 48 83 L 43 81 L 38 76 L 32 71 L 28 66 L 24 58 L 22 50 L 20 42 L 22 32 L 25 22 Z"
-            fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.22)" stroke-width="0.35" stroke-linejoin="round"/>
-          <!-- White Nile -->
-          <path d="M 52 79 Q 53 68 55 58 Q 56 48 53 40 Q 51 32 49 23 Q 47 16 46 10"
-            fill="none" stroke="url(#nileG)" stroke-width="1.4" stroke-linecap="round"/>
-          <!-- Blue Nile -->
-          <path d="M 53 60 Q 58 56 62 50 Q 65 44 64 36"
-            fill="none" stroke="rgba(100,160,240,0.3)" stroke-width="0.9" stroke-linecap="round"/>
-          <!-- Atbara River -->
-          <path d="M 52 38 Q 56 34 60 28 Q 63 22 65 12"
-            fill="none" stroke="rgba(68,140,220,0.2)" stroke-width="0.7" stroke-linecap="round"/>
+          <path d="M28 10L32 8L46 10L51 8L65 12L72 18L76 26L79 34L80 43L76 56L71 66L65 72L58 76L52 79L48 83L43 81L38 76L32 71L28 66L24 58L22 50L20 42L22 32L25 22Z" fill="rgba(201,168,76,.05)" stroke="rgba(201,168,76,.22)" stroke-width=".35" stroke-linejoin="round"/>
+          <path d="M52 79Q53 68 55 58Q56 48 53 40Q51 32 49 23Q47 16 46 10" fill="none" stroke="url(#nile-g)" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M53 60Q58 56 62 50Q65 44 64 36" fill="none" stroke="rgba(100,160,240,.3)" stroke-width=".9" stroke-linecap="round"/>
+          <path d="M52 38Q56 34 60 28Q63 22 65 12" fill="none" stroke="rgba(68,140,220,.2)" stroke-width=".7" stroke-linecap="round"/>
+          <text x="34" y="47" font-size="2.2" fill="rgba(68,140,220,.35)" font-family="Cormorant Garamond,serif" transform="rotate(-72,34,47)">White Nile</text>
         </svg>
-        <!-- Beacons added by JS -->
-        <div id="mapBeacons" style="position:absolute;inset:0;z-index:5"></div>
-        <!-- Map decorations -->
-        <div style="position:absolute;top:12px;left:12px;width:18px;height:18px;border-top:1px solid rgba(201,168,76,0.2);border-left:1px solid rgba(201,168,76,0.2)"></div>
-        <div style="position:absolute;top:12px;right:12px;width:18px;height:18px;border-top:1px solid rgba(201,168,76,0.2);border-right:1px solid rgba(201,168,76,0.2)"></div>
-        <div style="position:absolute;bottom:12px;left:12px;width:18px;height:18px;border-bottom:1px solid rgba(201,168,76,0.2);border-left:1px solid rgba(201,168,76,0.2)"></div>
-        <div style="position:absolute;bottom:12px;right:12px;width:18px;height:18px;border-bottom:1px solid rgba(201,168,76,0.2);border-right:1px solid rgba(201,168,76,0.2)"></div>
-        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;opacity:0.3">
-          <div style="width:50px;height:1px;background:var(--gold)"></div>
-          <span style="font-size:8px;letter-spacing:0.3em;color:var(--gold);font-family:var(--font-serif)">500 km</span>
-          <div style="width:50px;height:1px;background:var(--gold)"></div>
+        <div id="mapBcns" style="position:absolute;inset:0;z-index:5"></div>
+        <!-- Corners -->
+        <div style="position:absolute;top:10px;left:10px;width:16px;height:16px;border-top:1px solid rgba(201,168,76,.25);border-left:1px solid rgba(201,168,76,.25)"></div>
+        <div style="position:absolute;top:10px;right:10px;width:16px;height:16px;border-top:1px solid rgba(201,168,76,.25);border-right:1px solid rgba(201,168,76,.25)"></div>
+        <div style="position:absolute;bottom:10px;left:10px;width:16px;height:16px;border-bottom:1px solid rgba(201,168,76,.25);border-left:1px solid rgba(201,168,76,.25)"></div>
+        <div style="position:absolute;bottom:10px;right:10px;width:16px;height:16px;border-bottom:1px solid rgba(201,168,76,.25);border-right:1px solid rgba(201,168,76,.25)"></div>
+        <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;opacity:.25">
+          <div style="width:45px;height:1px;background:var(--gold)"></div>
+          <span style="font-size:7px;letter-spacing:.35em;color:var(--gold);font-family:'Cormorant Garamond',serif">500 km</span>
+          <div style="width:45px;height:1px;background:var(--gold)"></div>
         </div>
       </div>
-      <!-- Location Panel -->
-      <div class="loc-panel reveal-right">
-        <div class="loc-panel-header">Select a site to explore</div>
+      <div class="loc-panel rev-r">
+        <div class="loc-header">Select a site to discover</div>
         <div id="locCards"></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"><div class="divider-icon">✦</div></div>
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
 
-<!-- ═══ GALLERY ═══ -->
-<section id="gallery">
-  <div class="section-pad">
-    <div class="container gallery-intro reveal">
-      <div class="ornament" data-key="galleryOrnament">Collection</div>
-      <h2 class="section-title" data-key="galleryTitle">The Museum</h2>
-      <p class="section-sub" data-key="gallerySub">Artifacts and landscapes of a civilization that changed the world</p>
-    </div>
-    <div class="gallery-filter reveal" id="galleryFilter"></div>
-    <div class="gallery-masonry" id="galleryGrid"></div>
+<!-- ═══════════ GALLERY ═══════════ -->
+<section id="gallery" class="sec sp">
+  <div class="wrap gal-intro rev">
+    <div class="orn" data-key="galOrn">Collection</div>
+    <h2 class="sec-h" data-key="galTitle">The Museum</h2>
+    <p class="sec-s" data-key="galSub">Artifacts and wonders of a civilization that changed the world</p>
   </div>
+  <div class="gal-filter rev" id="galFilter"></div>
+  <div class="gal-masonry" id="galGrid"></div>
 </section>
 
 <!-- LIGHTBOX -->
 <div id="lb" onclick="closeLb(event)">
-  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-x" onclick="closeLb()">✕</button>
   <div class="lb-box">
-    <div class="lb-img-wrap"><img id="lbImg" src="" alt=""/></div>
+    <div class="lb-img-w"><img id="lbImg" src="" alt=""/></div>
     <div class="lb-info">
       <div class="lb-cat" id="lbCat"></div>
       <div class="lb-title" id="lbTitle"></div>
@@ -1402,89 +1301,93 @@ footer {
   </div>
 </div>
 
-<div class="divider"><div class="divider-icon">✦</div></div>
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
 
-<!-- ═══ ARTICLES ═══ -->
-<section id="articles">
-  <div class="section-pad">
-    <div class="container articles-intro reveal">
-      <div class="ornament" data-key="articlesOrnament">Knowledge</div>
-      <h2 class="section-title" data-key="articlesTitle">The Library</h2>
-      <p class="section-sub" data-key="articlesSub">Deep dives into Sudan's extraordinary history</p>
-    </div>
-    <div class="container">
-      <div class="articles-grid" id="articlesGrid"></div>
-    </div>
+<!-- ═══════════ EXPLORE — FLIP CARDS ═══════════ -->
+<section id="explore" class="sec sp">
+  <div class="wrap explore-intro rev">
+    <div class="orn" data-key="expOrn">Deep Dive</div>
+    <h2 class="sec-h" data-key="expTitle">Discover More</h2>
+    <p class="sec-s" data-key="expSub">Hover to reveal hidden stories from Sudan's extraordinary past</p>
   </div>
+  <div class="flip-grid" id="flipGrid"></div>
+</section>
+
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
+
+<!-- ═══════════ ARTICLES ═══════════ -->
+<section id="articles" class="sec sp">
+  <div class="wrap" style="text-align:center;margin-bottom:5rem">
+    <div class="orn rev" data-key="artOrn">Knowledge</div>
+    <h2 class="sec-h rev" data-key="artTitle">The Library</h2>
+    <p class="sec-s rev" data-key="artSub">Deep explorations of Sudan's extraordinary history</p>
+  </div>
+  <div class="wrap"><div class="art-grid" id="artGrid"></div></div>
 </section>
 
 <!-- Article Modal -->
-<div id="article-modal">
-  <button class="am-close" onclick="closeArticle()">✕</button>
-  <div class="article-modal-inner" id="articleModalContent"></div>
+<div id="art-modal">
+  <button class="am-x" onclick="closeArt()">✕</button>
+  <div class="am-inner" id="amContent"></div>
 </div>
 
-<div class="divider"><div class="divider-icon">✦</div></div>
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
 
-<!-- ═══ LANGUAGE MARQUEE ═══ -->
-<section id="lang-showcase">
-  <div class="container reveal" style="text-align:center;margin-bottom:2rem">
-    <div class="ornament">A Heritage for All Humanity</div>
+<!-- ═══════════ LANGUAGE MARQUEE ═══════════ -->
+<section id="marquee-sec">
+  <div class="wrap rev" style="text-align:center;margin-bottom:2.5rem">
+    <div class="orn">A Heritage for All of Humanity</div>
   </div>
-  <div class="lang-marquee-wrap">
-    <div class="lang-marquee" id="langMarquee"></div>
-  </div>
+  <div class="marquee-row"><div class="marquee-inner s1" id="mq1"></div></div>
+  <div style="height:.5rem"></div>
+  <div class="marquee-row"><div class="marquee-inner s2" id="mq2"></div></div>
 </section>
 
-<div class="divider"><div class="divider-icon">✦</div></div>
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
 
-<!-- ═══ NEWSLETTER ═══ -->
+<!-- ═══════════ NEWSLETTER ═══════════ -->
 <section id="newsletter">
-  <div class="container">
-    <div class="newsletter-box reveal">
-      <div class="ornament">Stay Connected</div>
-      <h3 class="newsletter-title">Join the Heritage Community</h3>
-      <p class="newsletter-sub">Receive the latest discoveries, articles, and updates from Sudan Heritage</p>
-      <div class="newsletter-form">
-        <input type="email" class="newsletter-input" placeholder="Your email address" id="emailInput"/>
-        <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe</button>
-      </div>
+  <div class="wrap"><div class="nl-box rev">
+    <div class="orn">Stay Connected</div>
+    <h3 class="nl-title">Join the Heritage Community</h3>
+    <p class="nl-sub">Receive the latest discoveries, articles, and updates from Sudan Heritage</p>
+    <div class="nl-form">
+      <input type="email" class="nl-input" placeholder="Your email address" id="nlEmail"/>
+      <button class="nl-btn" onclick="nlSub()">Subscribe</button>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<div class="divider"><div class="divider-icon">✦</div></div>
+<div class="div"><div class="div-ico"><div class="div-line"></div><div class="div-gem"></div><div class="div-line r"></div></div></div>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Brand -->
+  <div class="wrap">
+    <div class="ft-grid">
       <div>
-        <div class="footer-brand-name">SUDAN HERITAGE</div>
-        <p class="footer-brand-desc">The world's premier digital museum dedicated to 5,000 years of Sudanese and Nubian civilization. Built for humanity, by humanity.</p>
-        <div class="footer-social">
-          <a href="https://twitter.com" target="_blank" class="social-btn" title="Twitter/X">𝕏</a>
-          <a href="https://instagram.com" target="_blank" class="social-btn" title="Instagram">📷</a>
-          <a href="https://facebook.com" target="_blank" class="social-btn" title="Facebook">f</a>
-          <a href="https://youtube.com" target="_blank" class="social-btn" title="YouTube">▶</a>
-          <a href="https://github.com/jafarema/sudan-heritage" target="_blank" class="social-btn" title="GitHub">⌥</a>
+        <div class="ft-brand">SUDAN HERITAGE</div>
+        <p class="ft-desc">The world's premier digital museum dedicated to 5,000 years of Sudanese and Nubian civilization. Built for humanity, by humanity.</p>
+        <div class="ft-social">
+          <a href="https://twitter.com" target="_blank" class="s-btn">𝕏</a>
+          <a href="https://instagram.com" target="_blank" class="s-btn">◎</a>
+          <a href="https://facebook.com" target="_blank" class="s-btn">f</a>
+          <a href="https://youtube.com" target="_blank" class="s-btn">▶</a>
+          <a href="https://github.com/jafarema/sudan-heritage" target="_blank" class="s-btn">⌥</a>
         </div>
       </div>
-      <!-- Explore -->
-      <div class="footer-col">
-        <div class="footer-col-title">Explore</div>
+      <div class="ft-col">
+        <div class="ft-h">Explore</div>
         <ul>
-          <li><a onclick="scrollToId('about')">About Sudan</a></li>
-          <li><a onclick="scrollToId('timeline')">River of Time</a></li>
-          <li><a onclick="scrollToId('map')">Virtual Explorer</a></li>
-          <li><a onclick="scrollToId('gallery')">The Museum</a></li>
-          <li><a onclick="scrollToId('articles')">The Library</a></li>
+          <li><a onclick="go('about')">About Sudan</a></li>
+          <li><a onclick="go('timeline')">River of Time</a></li>
+          <li><a onclick="go('map')">Virtual Explorer</a></li>
+          <li><a onclick="go('gallery')">The Museum</a></li>
+          <li><a onclick="go('explore')">Discover More</a></li>
+          <li><a onclick="go('articles')">The Library</a></li>
         </ul>
       </div>
-      <!-- Heritage -->
-      <div class="footer-col">
-        <div class="footer-col-title">Heritage</div>
+      <div class="ft-col">
+        <div class="ft-h">Heritage</div>
         <ul>
           <li><a>Kingdom of Kerma</a></li>
           <li><a>Kingdom of Kush</a></li>
@@ -1494,538 +1397,343 @@ footer {
           <li><a>Modern Sudan</a></li>
         </ul>
       </div>
-      <!-- Connect -->
-      <div class="footer-col">
-        <div class="footer-col-title">Connect</div>
+      <div class="ft-col">
+        <div class="ft-h">Connect</div>
         <ul>
-          <li><a href="https://github.com/jafarema/sudan-heritage" target="_blank">GitHub Repository</a></li>
-          <li><a>Contribute an Article</a></li>
+          <li><a href="https://github.com/jafarema/sudan-heritage" target="_blank">GitHub</a></li>
+          <li><a onclick="go('articles')">Write an Article</a></li>
           <li><a>Partner With Us</a></li>
           <li><a>Academic Collaboration</a></li>
           <li><a>Media & Press</a></li>
-          <li><a onclick="scrollToId('newsletter')">Newsletter</a></li>
+          <li><a onclick="go('newsletter')">Newsletter</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Sudan Heritage · Built with reverence for a great civilization · <a href="https://github.com/jafarema/sudan-heritage" target="_blank" style="color:rgba(201,168,76,0.4)">Open Source on GitHub</a></p>
-      <div class="footer-pulse"><div class="pulse-dot"></div>THREE.JS · VANILLA JS · LOVE</div>
+    <div class="ft-bottom">
+      <p class="ft-copy">© 2025 Sudan Heritage · Open Source on <a href="https://github.com/jafarema/sudan-heritage" target="_blank" style="color:rgba(201,168,76,.38)">GitHub</a></p>
+      <div class="ft-live"><div class="ft-dot"></div>LIVE · THREE.JS · BUILT WITH PRIDE</div>
     </div>
   </div>
 </footer>
 
 <!-- ════════════════════════════════════════
-     DATA & JAVASCRIPT
+     DATA
 ════════════════════════════════════════ -->
 <script>
-// ══ DATA ══════════════════════════════════════
-const ERAS = [
-  { id:'kerma', period:'2500 BC', title:'Kingdom of Kerma', sub:"Africa's First Great City",
-    desc:'The earliest indigenous Nubian kingdom, Kerma was a powerful rival to pharaonic Egypt. Its capital — the oldest in sub-Saharan Africa — housed over 10,000 inhabitants. Master potters, gold traders, and warriors who held Egypt at bay for centuries.',
-    color:'#B87333', img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=700&q=85',
-    icon:'🏛️', facts:['Oldest city in sub-Saharan Africa','Gold trade empire','Rival to pharaonic Egypt'] },
-  { id:'kush', period:'1070 BC', title:'Kingdom of Kush & Meroe', sub:"The Black Pharaohs Rule",
-    desc:'Kushite kings conquered Egypt itself, ruling as the mighty 25th Dynasty. They built 255 pyramids — more than Egypt. Their iron-smelting industry at Meroe powered an empire spanning a thousand Nile miles. The Meroitic script, unique and still mysterious, stands as one of antiquity\'s great puzzles.',
-    color:'#C9A84C', img:'https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',
-    icon:'👑', facts:['Ruled all of Egypt','255 pyramids built','Meroitic script invented'] },
-  { id:'christian', period:'500 AD', title:'Christian Nubia', sub:"Golden Age of Faith & Art",
-    desc:'Three Christian kingdoms — Nobatia, Makuria, and Alodia — created a medieval golden age. Cathedral murals rivaling Byzantine masterpieces adorned church walls. For 700 years, these kingdoms successfully resisted Arab expansion — the longest Christian resistance in African history.',
-    color:'#4488CC', img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=85',
-    icon:'✝️', facts:['700 years of independence','Byzantine-style frescoes','Three thriving kingdoms'] },
-  { id:'islamic', period:'1500 AD', title:'Islamic Sultanates', sub:"Crossroads of Civilizations",
-    desc:'The Funj Sultanate united the Nile Valley in a cosmopolitan empire. Suakin on the Red Sea — a city built entirely of coral without mortar — became East Africa\'s most magnificent port. Trade routes connected Sudan to Arabia, India, and the Mediterranean.',
-    color:'#2ECC71', img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=700&q=85',
-    icon:'☪️', facts:['Funj Sultanate unity','Coral city of Suakin','African–Arab trade hub'] },
-  { id:'modern', period:'1956–Present', title:'Modern Sudan', sub:"Independence & Resilience",
-    desc:'Independent since 1956, Sudan carries the weight and wonder of all it has been. Despite decades of conflict, its people maintain one of humanity\'s richest cultural tapestries — over 500 ethnic groups, 400 languages, and the eternal Nile binding them all together.',
-    color:'#E74C3C', img:'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=700&q=85',
-    icon:'🌍', facts:['Independence 1956','500+ ethnic groups','400+ languages'] }
+const ERAS=[
+  {id:'kerma',period:'2500 BC',title:'Kingdom of Kerma',sub:"Africa's First Great City",desc:'The earliest indigenous Nubian kingdom, Kerma was a powerful rival to pharaonic Egypt. Its capital — the oldest city in sub-Saharan Africa — housed over 10,000 inhabitants. Master potters, gold traders, and warriors who held Egypt at bay for centuries.',color:'#B87333',img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=700&q=85',icon:'🏛️',facts:['Oldest sub-Saharan city','Rival to pharaonic Egypt','Extraordinary ceramics']},
+  {id:'kush',period:'1070 BC',title:'Kingdom of Kush & Meroe',sub:'The Black Pharaohs Rule Egypt',desc:"Kushite kings conquered Egypt itself, ruling as the mighty 25th Dynasty. They built 255 pyramids — more than Egypt. Their iron-smelting industry at Meroe powered an empire spanning a thousand miles. The Meroitic script remains one of antiquity's greatest mysteries.",color:'#C9A84C',img:'https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',icon:'👑',facts:['Ruled all of Egypt','255 pyramids','Meroitic script']},
+  {id:'christian',period:'500 AD',title:'Christian Nubia',sub:'Golden Age of Faith & Art',desc:'Three Christian kingdoms created a medieval golden age of art and literacy. Cathedral murals rivaling Byzantine masterpieces. For 700 years, these kingdoms successfully resisted Arab expansion — the longest Christian resistance in African history.',color:'#4488CC',img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=85',icon:'✝️',facts:['700 years independent','Byzantine frescoes','Three kingdoms']},
+  {id:'islamic',period:'1500 AD',title:'Islamic Sultanates',sub:'Crossroads of Civilizations',desc:'The Funj Sultanate united the Nile Valley. Suakin on the Red Sea — built entirely of coral without mortar — became East Africa\'s most magnificent port. Trade routes connected Sudan to Arabia, India, and the Mediterranean world.',color:'#2ECC71',img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=700&q=85',icon:'☪️',facts:['Funj Sultanate','Coral city Suakin','African–Arab trade']},
+  {id:'modern',period:'1956–Present',title:'Modern Sudan',sub:'Independence & Resilience',desc:'Independent since 1956, Sudan carries the weight and wonder of all it has been. Despite decades of conflict, its people maintain one of humanity\'s richest cultural tapestries — over 500 ethnic groups, 400 languages, and the eternal Nile.',color:'#E74C3C',img:'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=700&q=85',icon:'🌍',facts:['Independence 1956','500+ ethnic groups','400+ languages']}
 ];
-
-const LOCATIONS = [
-  { id:'meroe', name:'Meroe', ar:'مروي', period:'700 BC – 350 AD',
-    desc:'Ancient capital of the Kingdom of Kush. Sudan\'s greatest city — home to 200+ pyramids, iron smelting furnaces, and a royal necropolis that rivals any in the world. A UNESCO World Heritage Site.',
-    img:'https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',
-    x:55, y:38, color:'#C9A84C' },
-  { id:'jebel', name:'Jebel Barkal', ar:'جبل بركل', period:'1500 BC – Present',
-    desc:'Sacred flat-topped mountain rising from the Nile desert. The ancient home of the god Amun. Eighteen temples, three palaces, and the spiritual heart of ancient Nubia. UNESCO World Heritage Site.',
-    img:'https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=500&q=85',
-    x:48, y:30, color:'#FF8C42' },
-  { id:'suakin', name:'Suakin', ar:'سواكن', period:'900 – 1900 AD',
-    desc:'The ghost city of the Red Sea. Once East Africa\'s greatest port, Suakin\'s coral buildings — built without mortar — were a wonder of Islamic architecture. Now being restored to its former glory.',
-    img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=500&q=85',
-    x:80, y:35, color:'#4ECDC4' },
-  { id:'khartoum', name:'Khartoum', ar:'الخرطوم', period:'1821 – Present',
-    desc:'Where the Blue and White Nile converge in one of geography\'s most dramatic confluences. The capital city whose name means "Elephant\'s Trunk" — a vibrant metropolis carrying 5,000 years of history.',
-    img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=500&q=85',
-    x:52, y:50, color:'#A8E6CF' },
-  { id:'kerma', name:'Kerma', ar:'كرمة', period:'2500 – 1500 BC',
-    desc:'Site of Sudan\'s oldest city and the capital of the Kingdom of Kerma. The massive mudbrick Deffufa temples still stand today, silent witnesses to Africa\'s first great urban civilization.',
-    img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=85',
-    x:45, y:24, color:'#B87333' },
-  { id:'naga', name:'Naga', ar:'ناقا', period:'1 – 350 AD',
-    desc:'A magnificent ancient city far from the Nile, featuring a temple to the lion god Apedemak and a kiosk blending Egyptian, Roman, and Nubian styles. One of Meroe\'s most extraordinary sites.',
-    img:'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&q=85',
-    x:60, y:45, color:'#8B1A8B' }
+const LOCS=[
+  {id:'meroe',name:'Meroe',ar:'مروي',period:'700 BC – 350 AD',desc:'Ancient capital of Kush. 200+ pyramids — more than Egypt. Iron smelting capital. UNESCO World Heritage Site.',img:'https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',x:55,y:38,c:'#C9A84C'},
+  {id:'jebel',name:'Jebel Barkal',ar:'جبل بركل',period:'1500 BC – Present',desc:'Sacred mountain home of Amun. 18 temples, 3 palaces. The spiritual heart of Nubia. UNESCO site.',img:'https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=500&q=85',x:48,y:30,c:'#FF8C42'},
+  {id:'suakin',name:'Suakin',ar:'سواكن',period:'900 – 1900 AD',desc:'Ghost city of the Red Sea. Once East Africa\'s greatest port, built entirely of coral without mortar.',img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=500&q=85',x:80,y:35,c:'#4ECDC4'},
+  {id:'khartoum',name:'Khartoum',ar:'الخرطوم',period:'1821 – Present',desc:'Capital where Blue and White Nile converge — one of geography\'s most dramatic confluences.',img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=500&q=85',x:52,y:50,c:'#A8E6CF'},
+  {id:'kermasite',name:'Kerma',ar:'كرمة',period:'2500 – 1500 BC',desc:'Site of Sudan\'s oldest city. The massive Deffufa temples — still standing — witness Africa\'s first great urban civilization.',img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=85',x:45,y:24,c:'#B87333'},
+  {id:'naga',name:'Naga',ar:'ناقا',period:'1 – 350 AD',desc:'Magnificent city far from the Nile. Temple of lion-god Apedemak blends Egyptian, Roman, and Nubian art.',img:'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&q=85',x:60,y:45,c:'#9B59B6'}
 ];
-
-const GALLERY_ITEMS = [
-  { title:'King Taharqa', period:'690–664 BC', cat:'Sculpture',
-    museum:'Musée du Louvre, Paris',
-    desc:'The greatest Kushite pharaoh who conquered and ruled all of Egypt. He built the largest column ever erected in Africa and restored Egypt\'s temples to their former glory.',
-    img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Taharqa_Louvre_Museum.jpg/800px-Taharqa_Louvre_Museum.jpg',
-    tags:['Sculpture','25th Dynasty','Kush'] },
-  { title:'Jewelry of Queen Amanishakheto', period:'10 BC – 1 AD', cat:'Jewelry',
-    museum:'Ägyptisches Museum, Berlin',
-    desc:'Magnificent gold jewelry discovered in the pyramid of the warrior queen Amanishakheto at Meroe. Among the finest examples of ancient African goldsmithing ever found — taken to Berlin in 1834.',
-    img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jewelry_of_Amanishakheto_03.jpg/800px-Jewelry_of_Amanishakheto_03.jpg',
-    tags:['Jewelry','Queens','Gold'] },
-  { title:'Pyramids of Meroe at Dusk', period:'700 BC – 350 AD', cat:'Architecture',
-    museum:'UNESCO World Heritage Site',
-    desc:'The royal necropolis of the Kingdom of Kush. Steeper and more slender than Egyptian pyramids, these 200+ monuments are Sudan\'s most iconic landmarks — and still largely unexcavated.',
-    img:'https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',
-    tags:['Architecture','Pyramids','Meroe'] },
-  { title:'The Desert Nile', period:'Eternal', cat:'Landscape',
-    museum:'Republic of Sudan',
-    desc:'The Nile has carved civilization from desert for 10,000 years. In Sudan\'s stretch — from the 1st to 6th cataracts — it nurtured more kingdoms than anywhere else on Earth.',
-    img:'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=85',
-    tags:['Landscape','Nile','Nature'] },
-  { title:'Ancient Warriors of Kush', period:'800 BC', cat:'Military',
-    museum:'National Museum of Sudan',
-    desc:'Kushite warriors were feared across the ancient world. Armed with powerful bows and riding war elephants, they built an empire the Romans, Assyrians, and Egyptians all had reason to respect.',
-    img:'https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=700&q=85',
-    tags:['Military','Kush','Warriors'] },
-  { title:'Sunset Over Nubia', period:'Timeless', cat:'Landscape',
-    museum:'Nubia, Sudan',
-    desc:'The light of Nubia is unlike any other — golden, ancient, and heavy with history. These landscapes inspired the world\'s first astronomers and gave birth to humanity\'s earliest gods.',
-    img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85',
-    tags:['Landscape','Nubia','Sunset'] },
-  { title:'Sacred Temple of Apedemak', period:'100 AD', cat:'Religion',
-    museum:'Naga, Sudan',
-    desc:'The lion-headed god Apedemak was uniquely Nubian — unknown in Egypt. His temple at Naga blends Egyptian columns with Roman arches and native Sudanese decoration in a style found nowhere else.',
-    img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=700&q=85',
-    tags:['Religion','Temples','Art'] },
-  { title:'The Kandake — Nubian Queens', period:'300 BC – 300 AD', cat:'Royalty',
-    museum:'Museum of Fine Arts, Boston',
-    desc:'The Kandakes of Meroe were warrior queens who commanded armies and negotiated with Rome. Queen Amanirenas defeated Augustus Caesar\'s forces and brought home a bronze head of the emperor as a trophy.',
-    img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=700&q=85',
-    tags:['Royalty','Queens','Kandake'] }
+const GAL=[
+  {title:'King Taharqa',period:'690–664 BC',cat:'Sculpture',museum:'Musée du Louvre, Paris',desc:'Greatest Kushite pharaoh who conquered all of Egypt. He built the largest column ever erected in Africa.',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Taharqa_Louvre_Museum.jpg/800px-Taharqa_Louvre_Museum.jpg',tags:['Sculpture','Kush']},
+  {title:'Jewelry of Queen Amanishakheto',period:'10 BC – 1 AD',cat:'Jewelry',museum:'Ägyptisches Museum, Berlin',desc:'Magnificent gold jewelry from the warrior queen\'s pyramid at Meroe. Finest ancient African goldsmithing ever found.',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jewelry_of_Amanishakheto_03.jpg/800px-Jewelry_of_Amanishakheto_03.jpg',tags:['Jewelry','Queens']},
+  {title:'Pyramids of Meroe',period:'700 BC – 350 AD',cat:'Architecture',museum:'UNESCO World Heritage Site',desc:'Royal necropolis of the Kingdom of Kush. Steeper and more slender than Egyptian pyramids.',img:'https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',tags:['Architecture','Meroe']},
+  {title:'Desert Nile',period:'Eternal',cat:'Landscape',museum:'Republic of Sudan',desc:'The Nile has carved civilization from desert for 10,000 years, nurturing more kingdoms than anywhere else on Earth.',img:'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=85',tags:['Landscape','Nile']},
+  {title:'Warriors of Kush',period:'800 BC',cat:'Military',museum:'National Museum of Sudan',desc:'Kushite warriors were feared across the ancient world — bows, war elephants, and iron weapons.',img:'https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=700&q=85',tags:['Military']},
+  {title:'Nubian Sunset',period:'Timeless',cat:'Landscape',museum:'Nubia, Sudan',desc:'The light of Nubia is unlike any other — golden, ancient, heavy with five millennia of history.',img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85',tags:['Landscape']},
+  {title:'Sacred Temple of Apedemak',period:'100 AD',cat:'Religion',museum:'Naga, Sudan',desc:'Lion-headed god uniquely Nubian. His temple blends Egyptian columns with Roman arches in a style found nowhere else.',img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=700&q=85',tags:['Religion','Art']},
+  {title:'The Kandake Queens',period:'300 BC – 300 AD',cat:'Royalty',museum:'Museum of Fine Arts, Boston',desc:'Warrior queens who commanded armies and negotiated with Rome. Amanirenas defeated Augustus Caesar\'s forces.',img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=700&q=85',tags:['Royalty','Queens']}
 ];
-
-const ARTICLES_DATA = [
-  { id:1, tag:'History', title:'The Black Pharaohs: When Nubia Ruled Egypt',
-    excerpt:'For nearly a century, the Kushite kings of Sudan sat on the throne of the most powerful nation on Earth. This is the story of how they got there — and how they changed Egypt forever.',
-    img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Taharqa_Louvre_Museum.jpg/800px-Taharqa_Louvre_Museum.jpg',
-    date:'March 2025', readTime:'8 min',
-    content:`<h3>The Rise of the Black Pharaohs</h3><p>Around 750 BC, something unprecedented happened in the ancient world. A Nubian king from the south — from what is now Sudan — led his armies northward and conquered all of Egypt. His name was Piye, and he established the 25th Dynasty: the dynasty of the Black Pharaohs.</p><p>For nearly a century, kings from the Kingdom of Kush ruled as pharaohs of Egypt. They were not conquerors who dismantled Egyptian culture — quite the opposite. These Nubian pharaohs were devoted to Egyptian traditions, and under their rule, Egypt experienced a remarkable cultural and artistic renaissance.</p><h3>Taharqa: The Greatest of Them All</h3><p>The most famous of the Black Pharaohs was Taharqa, who ruled from 690 to 664 BC. Under his reign, massive building projects transformed Egypt. He built monuments at Karnak, Kawa, and Sanam. He erected the largest column in ancient Africa at the Temple of Amun at Karnak. The Bible mentions him by name — in the book of Kings, he is described as coming to the aid of Hezekiah against the Assyrians.</p><p>Taharqa's era represents one of the most remarkable moments in Nubian history: a people who had long been neighbors — sometimes rivals, sometimes subjects — of Egypt, who now sat upon its throne and wore its double crown.</p><h3>Legacy</h3><p>Eventually, the Assyrian Empire's military power proved too great, and the Kushite pharaohs retreated south to their homeland. But they took with them everything they had learned in Egypt. The pyramid-building tradition, the religious temples, the artistic styles — all were transplanted back to Nubia, where they flourished for centuries after Egypt had moved on.</p>` },
-  { id:2, tag:'Archaeology', title:'Meroe: The Iron City That Powered an Empire',
-    excerpt:'Centuries before Europe\'s Iron Age, the Kingdom of Kush had mastered iron smelting on an industrial scale. The slag heaps of Meroe — still visible today — tell the story of a technological revolution.',
-    img:'https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',
-    date:'February 2025', readTime:'6 min',
-    content:`<h3>The Ironworks of Meroe</h3><p>When archaeologists first excavated Meroe in the early 20th century, they were astonished to find massive slag heaps — the byproduct of iron smelting — surrounding the ancient city. Meroe was not just a royal capital. It was an industrial center that produced iron on a scale unmatched anywhere in Africa or the Middle East at its time.</p><p>Iron made the Kingdom of Kush powerful. Iron tools meant more productive agriculture. Iron weapons meant a military advantage over neighbors armed with bronze. Iron goods meant valuable trade exports that brought wealth from across the ancient world.</p><h3>The Meroitic Script</h3><p>Meroe also gave the world one of its most tantalizing mysteries: the Meroitic script. Developed around 300 BC, it adapted Egyptian hieroglyphs into an alphabet of 23 symbols. Thousands of inscriptions exist — on pyramid walls, temple columns, and everyday objects. Yet scholars can read the sounds of the language perfectly... while understanding almost nothing of what it means. It remains one of the last undeciphered scripts of the ancient world.</p>` },
-  { id:3, tag:'Culture', title:'The Kandakes: Warrior Queens of Ancient Africa',
-    excerpt:'While most of the ancient world subjugated women, the Kingdom of Meroe had warrior queens who negotiated with Rome, commanded armies, and built pyramids. The Kandake tradition was unlike anything else in the ancient world.',
-    img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=700&q=85',
-    date:'January 2025', readTime:'7 min',
-    content:`<h3>Queens Who Commanded Armies</h3><p>The word "Kandake" — often anglicized as "Candace" — was the Meroitic title for queen mother or ruling queen. But these were not ceremonial figures. The Kandakes of Meroe were military commanders, diplomatic negotiators, and builders of empires.</p><p>The most famous is Queen Amanirenas, who led Kushite forces against the Roman Empire itself. Around 24 BC, she launched a bold campaign against Roman Egypt, sacking the city of Syene and carrying off statues of Emperor Augustus — including a famous bronze head, which was buried beneath the steps of a temple so that visitors would forever walk over the face of Rome's ruler.</p><h3>Amanishakheto: The Builder Queen</h3><p>Queen Amanishakheto ruled in the 1st century BC and left behind some of the most spectacular royal pyramids at Meroe. Her burial treasure — discovered by an Italian treasure hunter in 1834 and largely taken to Berlin — included extraordinary gold jewelry that represents the peak of Nubian goldsmithing: rings, amulets, shields, and necklaces of breathtaking craftsmanship.</p><h3>A Legacy Stolen and Reclaimed</h3><p>Much of what we know about the Kandakes has been filtered through Greek and Roman writers who were simultaneously awed and dismissive of powerful women. Modern archaeology is slowly giving them back their true voices — and revealing a tradition of female leadership that lasted for centuries and shaped one of Africa's greatest civilizations.</p>` }
+const FLIP_DATA=[
+  {cat:'Language',name:'The Meroitic Mystery',era:'300 BC',text:'One of the last undeciphered scripts in history. We can read every sound perfectly — but understand almost nothing of what it means.',img:'https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=500&q=85'},
+  {cat:'Queens',name:'Amanirenas vs Rome',era:'24 BC',text:'She launched a bold campaign against Augustus Caesar, sacking Roman Egypt and carrying his bronze head home as a trophy.',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jewelry_of_Amanishakheto_03.jpg/800px-Jewelry_of_Amanishakheto_03.jpg'},
+  {cat:'Religion',name:'The God Apedemak',era:'400 BC',text:'A lion-headed war deity worshipped only in Nubia — unknown in Egypt. His temples blend African, Egyptian, and Roman styles.',img:'https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=500&q=85'},
+  {cat:'Architecture',name:'Coral City of Suakin',era:'900 AD',text:'Built entirely from coral blocks cut from the Red Sea floor — without mortar. An architectural miracle now being restored.',img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=500&q=85'},
+  {cat:'Technology',name:'Iron Empire of Meroe',era:'700 BC',text:'Before Europe\'s Iron Age, Meroe had mastered iron smelting on an industrial scale. The slag heaps still stand today.',img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=85'},
+  {cat:'Astronomy',name:'Nubian Star Maps',era:'2000 BC',text:'The Kerma astronomers built Africa\'s first astronomical observatory — Nabta Playa — 1,000 years before Stonehenge.',img:'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&q=85'}
 ];
-
-const TRANSLATIONS = {
-  en:{ heroTitle:'SUDAN', heroSubtitle:'5,000 Years of Civilization', heroBadge:"The World's Premier Digital Museum of African Heritage", heroTagline:"Where Humanity's Story Begins", heroScroll:'Scroll to Explore', timelineTitle:'River of Time', timelineSub:'Five thousand years of glory — one civilization', mapTitle:'Virtual Explorer', mapSub:'Navigate the sacred geography of ancient Nubia', galleryTitle:'The Museum', gallerySub:'Artifacts and landscapes of a civilization that changed the world', articlesTitle:'The Library', articlesSub:"Deep dives into Sudan's extraordinary history", navAbout:'About', navTimeline:'Timeline', navMap:'Map', navGallery:'Gallery', navArticles:'Articles' },
-  ar:{ heroTitle:'السودان', heroSubtitle:'٥٠٠٠ عام من الحضارة', heroBadge:'المتحف الرقمي الأول للتراث الأفريقي في العالم', heroTagline:'حيث تبدأ قصة الإنسانية', heroScroll:'مرر للاستكشاف', timelineTitle:'نهر الزمن', timelineSub:'خمسة آلاف عام من المجد — حضارة واحدة', mapTitle:'المستكشف الافتراضي', mapSub:'تجول في الجغرافيا المقدسة للنوبة القديمة', galleryTitle:'المتحف', gallerySub:'آثار ومناظر حضارة غيّرت العالم', articlesTitle:'المكتبة', articlesSub:'غوص عميق في التاريخ الاستثنائي للسودان', navAbout:'عن السودان', navTimeline:'الجدول الزمني', navMap:'الخريطة', navGallery:'المعرض', navArticles:'المقالات' },
-  fr:{ heroTitle:'SOUDAN', heroSubtitle:"5 000 ans de civilisation", heroBadge:"Le musée numérique mondial du patrimoine africain", heroTagline:"Là où commence l'histoire de l'humanité", heroScroll:'Défiler pour explorer', timelineTitle:'Fleuve du temps', timelineSub:'Cinq mille ans de gloire — une seule civilisation', mapTitle:'Explorateur virtuel', mapSub:'Naviguez dans la géographie sacrée de la Nubie antique', galleryTitle:'Le musée', gallerySub:"Artefacts et paysages d'une civilisation qui a changé le monde", articlesTitle:'La bibliothèque', articlesSub:"Plongées profondes dans l'histoire extraordinaire du Soudan", navAbout:'À propos', navTimeline:'Chronologie', navMap:'Carte', navGallery:'Galerie', navArticles:'Articles' },
-  es:{ heroTitle:'SUDÁN', heroSubtitle:'5.000 años de civilización', heroBadge:'El museo digital mundial del patrimonio africano', heroTagline:'Donde comienza la historia de la humanidad', heroScroll:'Desplácese para explorar', timelineTitle:'Río del tiempo', timelineSub:'Cinco mil años de gloria — una sola civilización', mapTitle:'Explorador virtual', mapSub:'Navega por la geografía sagrada de la antigua Nubia', galleryTitle:'El museo', gallerySub:'Artefactos y paisajes de una civilización que cambió el mundo', articlesTitle:'La biblioteca', articlesSub:'Inmersiones profundas en la extraordinaria historia de Sudán', navAbout:'Acerca de', navTimeline:'Cronología', navMap:'Mapa', navGallery:'Galería', navArticles:'Artículos' },
-  zh:{ heroTitle:'苏丹', heroSubtitle:'5000年文明', heroBadge:'全球首屈一指的非洲遗产数字博物馆', heroTagline:'人类故事开始的地方', heroScroll:'滚动探索', timelineTitle:'时间之河', timelineSub:'五千年荣耀 — 一个文明', mapTitle:'虚拟探索器', mapSub:'游览古努比亚的神圣地理', galleryTitle:'博物馆', gallerySub:'改变世界的文明的文物与风景', articlesTitle:'图书馆', articlesSub:'深入探索苏丹非凡历史', navAbout:'关于', navTimeline:'时间线', navMap:'地图', navGallery:'画廊', navArticles:'文章' }
+const ARTS=[
+  {id:1,tag:'History',title:'The Black Pharaohs: When Nubia Ruled Egypt',excerpt:"For nearly a century, Kushite kings sat on the throne of the most powerful nation on Earth. This is how they got there — and how they changed Egypt forever.",img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Taharqa_Louvre_Museum.jpg/800px-Taharqa_Louvre_Museum.jpg',date:'March 2025',rt:'8 min read',
+  body:`<h3>The Rise from the South</h3><p>Around 750 BC, a Nubian king named Piye led his armies northward and conquered all of Egypt, establishing the 25th Dynasty — the dynasty of the Black Pharaohs. For nearly a century, kings from the Kingdom of Kush ruled as pharaohs of Egypt.</p><p>These were not conquerors who dismantled Egyptian culture. Quite the opposite: the Kushite pharaohs were devoted to Egyptian traditions. Under their rule, Egypt experienced a remarkable cultural and artistic renaissance. They restored crumbling temples, revived ancient rituals, and became, in many ways, more Egyptian than the Egyptians.</p><h3>Taharqa: Greatest of Them All</h3><p>The most famous Black Pharaoh was Taharqa, who ruled from 690 to 664 BC. He built monuments at Karnak, Kawa, and Sanam. He erected the largest column in ancient Africa. The Bible mentions him by name. When the Assyrian king Sennacherib threatened Jerusalem, Hezekiah sent for help — and Taharqa came.</p><h3>Legacy Written in Stone</h3><p>Eventually, Assyrian military power forced the Kushite pharaohs back south. But they carried everything with them — pyramid-building, temple architecture, religious traditions. These took root in Nubia and flourished for centuries, producing Sudan's 255 pyramids long after Egypt had moved on.</p>`},
+  {id:2,tag:'Archaeology',title:'Meroe: The Iron City That Powered an Empire',excerpt:"Centuries before Europe's Iron Age, the Kingdom of Kush had mastered iron smelting on an industrial scale. The slag heaps of Meroe tell the story of a technological revolution.",img:'https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',date:'February 2025',rt:'6 min read',
+  body:`<h3>The Ironworks of the Ancient World</h3><p>When archaeologists first excavated Meroe, they found massive slag heaps surrounding the ancient city — the byproduct of iron smelting on a scale unmatched anywhere in Africa or the Middle East at its time. Meroe was not just a royal capital. It was an industrial powerhouse.</p><p>Iron made the Kingdom of Kush powerful. Iron tools meant more productive agriculture. Iron weapons gave military advantage. Iron goods meant valuable trade exports that brought wealth from across the ancient world.</p><h3>The Undeciphered Script</h3><p>Meroe also gave the world one of its most tantalizing mysteries: the Meroitic script. Developed around 300 BC, it adapted Egyptian hieroglyphs into an alphabet of 23 symbols. Thousands of inscriptions exist. Yet scholars can read every sound of the language... while understanding almost nothing of what it means. It remains one of the last undeciphered scripts of the ancient world.</p><h3>250 Pyramids Still Standing</h3><p>Above all, Meroe gave the world 250+ pyramids — steeper, more slender, and in some ways more elegant than Egyptian ones. They rise from the desert like golden needles, each one the tomb of a king or queen who ruled this extraordinary civilization.</p>`},
+  {id:3,tag:'Culture',title:'The Kandakes: Africa\'s Warrior Queens',excerpt:"While most ancient cultures subjugated women, the Kingdom of Meroe had warrior queens who commanded armies, negotiated with Rome, and built pyramids. The Kandake tradition was unlike anything in the ancient world.",img:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=700&q=85',date:'January 2025',rt:'7 min read',
+  body:`<h3>Queens Who Commanded Armies</h3><p>The word "Kandake" — often anglicized as "Candace" — was the Meroitic title for a ruling queen. But these were not ceremonial figures. The Kandakes of Meroe were military commanders, diplomatic negotiators, and empire builders.</p><p>The most famous is Queen Amanirenas, who led Kushite forces against the Roman Empire around 24 BC. She launched a bold campaign against Roman Egypt, sacking the city of Syene and carrying off statues of Emperor Augustus — including a bronze head buried beneath temple steps so visitors would forever walk over Rome's ruler's face.</p><h3>The Builder Queen</h3><p>Queen Amanishakheto built some of Meroe's most spectacular pyramids. Her burial treasure — discovered in 1834 and largely taken to Berlin — includes extraordinary gold jewelry: rings, amulets, shields, and necklaces of breathtaking craftsmanship that represent the peak of Nubian goldsmithing.</p><h3>A Legacy Reclaimed</h3><p>Much of what we know about the Kandakes was filtered through Greek and Roman writers who were simultaneously awed and dismissive. Modern archaeology is slowly restoring their true voices — and revealing a tradition of female leadership that lasted centuries and shaped one of Africa's greatest civilizations.</p>`}
+];
+const TR={
+  en:{heroTitle:'SUDAN',heroSub:'5,000 Years of Civilization',heroBadge:"The World's Premier Digital Museum of African Heritage",heroTag:"Where Humanity's Story Begins",heroScroll:'Scroll to Explore',tlTitle:'River of Time',tlSub:'Five thousand years of glory — one unbroken civilization',mapTitle:'Virtual Explorer',mapSub:'Navigate the sacred geography of ancient Nubia',galTitle:'The Museum',galSub:'Artifacts and wonders of a civilization that changed the world',expTitle:'Discover More',expSub:"Hover to reveal hidden stories from Sudan's extraordinary past",artTitle:'The Library',artSub:"Deep explorations of Sudan's extraordinary history",navAbout:'About',navTimeline:'Timeline',navMap:'Map',navGallery:'Gallery',navExplore:'Explore',navArticles:'Articles',aboutOrn:'The Story',tlOrn:'Chronicle',mapOrn:'Sacred Sites',galOrn:'Collection',expOrn:'Deep Dive',artOrn:'Knowledge'},
+  ar:{heroTitle:'السودان',heroSub:'٥٠٠٠ عام من الحضارة',heroBadge:'المتحف الرقمي الأول للتراث الأفريقي',heroTag:'حيث تبدأ قصة الإنسانية',heroScroll:'مرر للاستكشاف',tlTitle:'نهر الزمن',tlSub:'خمسة آلاف عام من المجد — حضارة واحدة',mapTitle:'المستكشف الافتراضي',mapSub:'تجول في الجغرافيا المقدسة للنوبة القديمة',galTitle:'المتحف',galSub:'آثار وعجائب حضارة غيّرت العالم',expTitle:'اكتشف المزيد',expSub:'مرر فوق البطاقات لاكتشاف قصص مخفية',artTitle:'المكتبة',artSub:'رحلات عميقة في التاريخ الاستثنائي للسودان',navAbout:'عن السودان',navTimeline:'الجدول الزمني',navMap:'الخريطة',navGallery:'المعرض',navExplore:'استكشف',navArticles:'المقالات',aboutOrn:'القصة',tlOrn:'الحوليات',mapOrn:'المواقع المقدسة',galOrn:'المجموعة',expOrn:'غوص عميق',artOrn:'المعرفة'},
+  fr:{heroTitle:'SOUDAN',heroSub:"5 000 ans de civilisation",heroBadge:"Le musée numérique mondial du patrimoine africain",heroTag:"Là où commence l'histoire",heroScroll:'Défiler pour explorer',tlTitle:'Fleuve du temps',tlSub:'Cinq mille ans de gloire',mapTitle:'Explorateur virtuel',mapSub:'Naviguez la géographie sacrée de la Nubie',galTitle:'Le musée',galSub:"Artefacts d'une civilisation qui a changé le monde",expTitle:'Découvrir plus',expSub:'Survolez pour révéler des histoires cachées',artTitle:'La bibliothèque',artSub:"Plongées dans l'histoire du Soudan",navAbout:'À propos',navTimeline:'Chronologie',navMap:'Carte',navGallery:'Galerie',navExplore:'Explorer',navArticles:'Articles',aboutOrn:'Histoire',tlOrn:'Chronique',mapOrn:'Sites sacrés',galOrn:'Collection',expOrn:'Plongée',artOrn:'Savoir'},
+  es:{heroTitle:'SUDÁN',heroSub:'5.000 años de civilización',heroBadge:'El museo digital del patrimonio africano',heroTag:'Donde comienza la historia',heroScroll:'Desplácese para explorar',tlTitle:'Río del tiempo',tlSub:'Cinco mil años de gloria',mapTitle:'Explorador virtual',mapSub:'Navega la geografía sagrada de Nubia',galTitle:'El museo',galSub:'Artefactos de una civilización que cambió el mundo',expTitle:'Descubrir más',expSub:'Pasa el cursor para revelar historias ocultas',artTitle:'La biblioteca',artSub:'Exploraciones de la historia de Sudán',navAbout:'Acerca de',navTimeline:'Cronología',navMap:'Mapa',navGallery:'Galería',navExplore:'Explorar',navArticles:'Artículos',aboutOrn:'Historia',tlOrn:'Crónica',mapOrn:'Sitios sagrados',galOrn:'Colección',expOrn:'Exploración',artOrn:'Conocimiento'},
+  zh:{heroTitle:'苏丹',heroSub:'5000年文明',heroBadge:'全球首屈一指的非洲遗产数字博物馆',heroTag:'人类故事开始的地方',heroScroll:'滚动探索',tlTitle:'时间之河',tlSub:'五千年荣耀 — 一个文明',mapTitle:'虚拟探索器',mapSub:'游览古努比亚的神圣地理',galTitle:'博物馆',galSub:'改变世界的文明',expTitle:'更多发现',expSub:'悬停揭示隐藏故事',artTitle:'图书馆',artSub:'深入探索苏丹历史',navAbout:'关于',navTimeline:'时间线',navMap:'地图',navGallery:'画廊',navExplore:'探索',navArticles:'文章',aboutOrn:'故事',tlOrn:'年鉴',mapOrn:'圣地',galOrn:'藏品',expOrn:'深潜',artOrn:'知识'}
 };
+const MQ1=['SUDAN','السودان','苏丹','SOUDAN','SUDÁN','Civilization','حضارة','文明','Heritage','التراث','遗产','Nubia','النوبة','努比亚','Meroe','مروي','Kingdom','مملكة','王国','Pyramids','الأهرامات','金字塔'];
+const MQ2=['Khartoum','الخرطوم','喀土穆','History','التاريخ','历史','Africa','أفريقيا','非洲','Nile','النيل','尼罗河','Culture','الثقافة','文化','Kandake','كنداكي','坎达克','Kush','كوش','库什'];
 
-const MARQUEE_WORDS = [
-  { text:'SUDAN', cls:'' },{ text:'السودان', cls:'arabic' },{ text:'苏丹', cls:'chinese' },
-  { text:'SOUDAN', cls:'' },{ text:'SUDÁN', cls:'' },{ text:'Civilization', cls:'' },
-  { text:'حضارة', cls:'arabic' },{ text:'文明', cls:'chinese' },{ text:'Pyramides', cls:'' },
-  { text:'الأهرامات', cls:'arabic' },{ text:'金字塔', cls:'chinese' },{ text:'Heritage', cls:'' },
-  { text:'التراث', cls:'arabic' },{ text:'遗产', cls:'chinese' },{ text:'Nubia', cls:'' },
-  { text:'النوبة', cls:'arabic' },{ text:'努比亚', cls:'chinese' },{ text:'Meroe', cls:'' },
-  { text:'مروي', cls:'arabic' },{ text:'Kingdom', cls:'' },{ text:'مملكة', cls:'arabic' },
-];
+// ══ STATE ══
+let lg='en',muted=true,audioCtx=null,gainNode=null,activeLoc=null,galFil='All';
 
-// ══ STATE ══════════════════════════════════════
-let lang = 'en';
-let audioCtx=null, gainNode=null, muted=true;
-let activeLocId = null;
-let galleryFilter = 'All';
-
-// ══ TRANSLATIONS ══════════════════════════════
-function t(k){ return TRANSLATIONS[lang]?.[k] || TRANSLATIONS.en[k] || k; }
-
-function applyTranslations(){
-  document.querySelectorAll('[data-key]').forEach(el => el.textContent = t(el.dataset.key));
-}
-
+// ══ TRANSLATIONS ══
+const t=k=>TR[lg]?.[k]||TR.en[k]||k;
+function applyTR(){document.querySelectorAll('[data-key]').forEach(el=>el.textContent=t(el.dataset.key))}
 function setLang(l){
-  lang = l;
-  document.documentElement.lang = l;
-  document.documentElement.dir = l==='ar'?'rtl':'ltr';
-  document.querySelectorAll('.lang-opt').forEach((el,i)=>{
-    el.classList.toggle('on',['en','ar','fr','es','zh'][i]===l);
-  });
-  applyTranslations();
-  toggleLang(true);
+  lg=l;document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelectorAll('.l-opt').forEach((el,i)=>el.classList.toggle('on',['en','ar','fr','es','zh'][i]===l));
+  applyTR();toggleLang(true);
 }
+function toggleLang(c=false){document.getElementById('langDrop').classList.toggle('open',!c&&!document.getElementById('langDrop').classList.contains('open'))}
+document.addEventListener('click',e=>{if(!e.target.closest('.lang-wrap'))document.getElementById('langDrop').classList.remove('open')});
 
-function toggleLang(close=false){
-  const d = document.getElementById('langDrop');
-  if(close) d.classList.remove('open');
-  else d.classList.toggle('open');
-}
-document.addEventListener('click', e=>{
-  if(!e.target.closest('.lang-wrap')) document.getElementById('langDrop').classList.remove('open');
-});
+// ══ CURSOR ══
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let rx=0,ry=0,tx=0,ty=0;
+document.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;cur.style.left=tx+'px';cur.style.top=ty+'px'});
+(function animCur(){rx+=(tx-rx)*.1;ry+=(ty-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(animCur)})();
 
-// ══ CURSOR ══════════════════════════════════
-const cur = document.getElementById('cursor');
-const curR = document.getElementById('cursor-ring');
-let rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px';
-  rx+=(e.clientX-rx)*0.12; ry+=(e.clientY-ry)*0.12;
-  curR.style.left=rx+'px'; curR.style.top=ry+'px';
-});
-function animCursor(){ rx+=(parseFloat(cur.style.left||0)-rx)*0.12; ry+=(parseFloat(cur.style.top||0)-ry)*0.12; curR.style.left=rx+'px'; curR.style.top=ry+'px'; requestAnimationFrame(animCursor); }
-animCursor();
-
-// ══ LOADER ══════════════════════════════════
-(function initLoader(){
-  // Stars
-  const s=document.getElementById('loader-stars');
-  for(let i=0;i<40;i++){
-    const d=document.createElement('div');
-    const sz=Math.random()*2.5+0.5;
-    d.style.cssText=`position:absolute;width:${sz}px;height:${sz}px;border-radius:50%;background:#C9A84C;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:twinkle ${Math.random()*3+2}s ${Math.random()*3}s ease-in-out infinite`;
+// ══ LOADER ══
+(function(){
+  const s=document.getElementById('ld-stars');
+  for(let i=0;i<50;i++){
+    const d=document.createElement('div'),sz=Math.random()*2+.5;
+    d.style.cssText=`position:absolute;width:${sz}px;height:${sz}px;border-radius:50%;background:#C9A84C;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:tw ${Math.random()*3+2}s ${Math.random()*3}s ease-in-out infinite`;
     s.appendChild(d);
   }
-  // Add twinkle keyframe
-  const style=document.createElement('style');
-  style.textContent='@keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:0.7;transform:scale(1)}}';
-  document.head.appendChild(style);
-
-  const msgs=['Awakening the Nile...','Loading Ancient Archives...','Rendering Sacred Geometry...','Summoning the Kandakes...','Lighting the Gold Dust...','Welcome to Sudan Heritage'];
+  const stl=document.createElement('style');
+  stl.textContent='@keyframes tw{0%,100%{opacity:0;transform:scale(0)}50%{opacity:.7;transform:scale(1)}}';
+  document.head.appendChild(stl);
   let pct=0;
-  const fill=document.getElementById('loader-fill');
-  const msg=document.getElementById('loader-msg');
-  const pctEl=document.getElementById('loader-pct');
+  const numEl=document.getElementById('ldNum'),barEl=document.getElementById('ldBar');
   const iv=setInterval(()=>{
-    pct=Math.min(100,pct+Math.random()*5+1.5);
-    fill.style.width=pct+'%';
-    pctEl.textContent=Math.round(pct)+'%';
-    msg.textContent=msgs[Math.min(5,Math.floor(pct/100*msgs.length))];
+    pct=Math.min(100,pct+Math.random()*4+1.5);
+    numEl.textContent=Math.round(pct);
+    barEl.style.width=pct+'%';
     if(pct>=100){
       clearInterval(iv);
       setTimeout(()=>{
         document.getElementById('loader').classList.add('out');
-        setTimeout(()=>document.getElementById('loader').style.display='none',1100);
-      },600);
+        setTimeout(()=>document.getElementById('loader').style.display='none',1300);
+      },500);
     }
-  },70);
+  },65);
 })();
 
-// ══ THREE.JS HERO ══════════════════════════════
-(function initHero(){
+// ══ THREE.JS HERO ══
+(function(){
   if(!window.THREE)return;
-  const canvas=document.getElementById('hero-canvas');
-  const scene=new THREE.Scene();
-  scene.background=new THREE.Color(0x04040E);
-  const camera=new THREE.PerspectiveCamera(58,window.innerWidth/window.innerHeight,0.1,100);
-  camera.position.set(0,0,5);
-  const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
-  renderer.setSize(window.innerWidth,window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  const cv=document.getElementById('hero-canvas');
+  const sc=new THREE.Scene();sc.background=new THREE.Color(0x030309);
+  const cam=new THREE.PerspectiveCamera(58,innerWidth/innerHeight,.1,100);cam.position.set(0,0,5);
+  const rdr=new THREE.WebGLRenderer({canvas:cv,antialias:true});
+  rdr.setSize(innerWidth,innerHeight);rdr.setPixelRatio(Math.min(devicePixelRatio,2));
 
-  // Lighting
-  scene.add(new THREE.AmbientLight(0x223355,0.8));
-  const pl1=new THREE.PointLight(0xC9A84C,2.5,25); pl1.position.set(5,5,5); scene.add(pl1);
-  const pl2=new THREE.PointLight(0xB87333,1.5,25); pl2.position.set(-5,-3,4); scene.add(pl2);
-  const pl3=new THREE.PointLight(0x4488AA,1,25); pl3.position.set(0,8,-3); scene.add(pl3);
+  sc.add(new THREE.AmbientLight(0x223355,.9));
+  const pl1=new THREE.PointLight(0xC9A84C,3,28);pl1.position.set(5,5,5);sc.add(pl1);
+  const pl2=new THREE.PointLight(0xB87333,2,28);pl2.position.set(-5,-3,4);sc.add(pl2);
+  const pl3=new THREE.PointLight(0x4488AA,1.2,28);pl3.position.set(0,8,-3);sc.add(pl3);
+  // Rim light (orange warmth)
+  const pl4=new THREE.PointLight(0xFF6600,.8,20);pl4.position.set(0,-5,2);sc.add(pl4);
 
   // Stars
-  const sg=new THREE.BufferGeometry();
-  const sp=new Float32Array(6000);
-  for(let i=0;i<6000;i++) sp[i]=(Math.random()-0.5)*(i%3===2?100:300);
+  const sg=new THREE.BufferGeometry(),sp=new Float32Array(9000);
+  for(let i=0;i<9000;i++)sp[i]=(Math.random()-.5)*(i%3===2?120:350);
   sg.setAttribute('position',new THREE.BufferAttribute(sp,3));
-  scene.add(new THREE.Points(sg,new THREE.PointsMaterial({color:0xffffff,size:0.06,transparent:true,opacity:0.5})));
+  sc.add(new THREE.Points(sg,new THREE.PointsMaterial({color:0xffffff,size:.055,transparent:true,opacity:.45})));
 
   // Gold dust
-  const dg=new THREE.BufferGeometry();
-  const dp=new Float32Array(1200),dv=new Float32Array(400);
-  for(let i=0;i<400;i++){
-    dp[i*3]=(Math.random()-0.5)*16; dp[i*3+1]=(Math.random()-0.5)*10; dp[i*3+2]=(Math.random()-0.5)*8;
-    dv[i]=Math.random()*0.004+0.002;
-  }
+  const dg=new THREE.BufferGeometry(),dp=new Float32Array(1800),dv=new Float32Array(600);
+  for(let i=0;i<600;i++){dp[i*3]=(Math.random()-.5)*18;dp[i*3+1]=(Math.random()-.5)*11;dp[i*3+2]=(Math.random()-.5)*9;dv[i]=Math.random()*.005+.002;}
   dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
-  const dust=new THREE.Points(dg,new THREE.PointsMaterial({color:0xC9A84C,size:0.05,transparent:true,opacity:0.5,sizeAttenuation:true}));
-  scene.add(dust);
+  const dust=new THREE.Points(dg,new THREE.PointsMaterial({color:0xC9A84C,size:.055,transparent:true,opacity:.5,sizeAttenuation:true}));
+  sc.add(dust);
 
-  // Orbit ring
-  const rg=new THREE.BufferGeometry(), rp=new Float32Array(240);
-  for(let i=0;i<80;i++){
-    const a=(i/80)*Math.PI*2;
-    rp[i*3]=Math.cos(a)*6; rp[i*3+1]=Math.sin(i*0.4)*0.8; rp[i*3+2]=Math.sin(a)*6;
+  // Copper shimmer particles
+  const cg=new THREE.BufferGeometry(),cp2=new Float32Array(600);
+  for(let i=0;i<200;i++){cp2[i*3]=(Math.random()-.5)*14;cp2[i*3+1]=(Math.random()-.5)*9;cp2[i*3+2]=(Math.random()-.5)*7;}
+  cg.setAttribute('position',new THREE.BufferAttribute(cp2,3));
+  sc.add(new THREE.Points(cg,new THREE.PointsMaterial({color:0xB87333,size:.04,transparent:true,opacity:.35,sizeAttenuation:true})));
+
+  // Orbit rings
+  function mkRing(r,count,col,op){
+    const g=new THREE.BufferGeometry(),p=new Float32Array(count*3);
+    for(let i=0;i<count;i++){const a=(i/count)*Math.PI*2;p[i*3]=Math.cos(a)*r;p[i*3+1]=Math.sin(i*.4)*.7;p[i*3+2]=Math.sin(a)*r;}
+    g.setAttribute('position',new THREE.BufferAttribute(p,3));
+    return new THREE.Points(g,new THREE.PointsMaterial({color:col,size:.045,transparent:true,opacity:op,sizeAttenuation:true}));
   }
-  rg.setAttribute('position',new THREE.BufferAttribute(rp,3));
-  const ring=new THREE.Points(rg,new THREE.PointsMaterial({color:0xC9A84C,size:0.04,transparent:true,opacity:0.3}));
-  scene.add(ring);
+  const ring1=mkRing(6.5,100,0xC9A84C,.3);sc.add(ring1);
+  const ring2=mkRing(8,60,0xB87333,.18);sc.add(ring2);
 
-  // Image planes
-  const loader=new THREE.TextureLoader(); loader.setCrossOrigin('anonymous');
-  function billboard(url,x,y,z,sx,sy,ry=0){
-    loader.load(url,tex=>{
-      const m=new THREE.Mesh(
-        new THREE.PlaneGeometry(1,1),
-        new THREE.MeshBasicMaterial({map:tex,transparent:true,opacity:0.88,side:THREE.DoubleSide})
-      );
-      m.scale.set(sx,sy,1); m.position.set(x,y,z); m.rotation.y=ry;
-      m.userData={by:y,fs:0.5+Math.random()*0.5,fa:0.12+Math.random()*0.08};
-      scene.add(m);
+  // Image billboards
+  const ld=new THREE.TextureLoader();ld.setCrossOrigin('anonymous');
+  function bb(url,x,y,z,sx,sy,ry=0){
+    ld.load(url,tex=>{
+      const m=new THREE.Mesh(new THREE.PlaneGeometry(1,1),new THREE.MeshBasicMaterial({map:tex,transparent:true,opacity:.88,side:THREE.DoubleSide}));
+      m.scale.set(sx,sy,1);m.position.set(x,y,z);m.rotation.y=ry;
+      m.userData={by:y,fs:.5+Math.random()*.5,fa:.12+Math.random()*.08};sc.add(m);
     },undefined,()=>{});
   }
-  billboard('https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',0,0,-3,11,6);
-  billboard('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Taharqa_Louvre_Museum.jpg/800px-Taharqa_Louvre_Museum.jpg',-3,0.2,0.8,1.7,2.4,0.22);
-  billboard('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jewelry_of_Amanishakheto_03.jpg/800px-Jewelry_of_Amanishakheto_03.jpg',3,0.3,0.8,1.7,2.4,-0.22);
+  bb('https://upload.wikimedia.org/wikipedia/commons/e/e6/NubianMeroePyramids30sep2005%282%29.jpg',0,0,-3,12,6.5);
+  bb('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Taharqa_Louvre_Museum.jpg/800px-Taharqa_Louvre_Museum.jpg',-3.2,.2,.8,1.8,2.5,.22);
+  bb('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jewelry_of_Amanishakheto_03.jpg/800px-Jewelry_of_Amanishakheto_03.jpg',3.2,.3,.8,1.8,2.5,-.22);
 
-  // Mouse
   let mx=0,my=0;
-  window.addEventListener('mousemove',e=>{ mx=(e.clientX/window.innerWidth-0.5)*2; my=-(e.clientY/window.innerHeight-0.5)*2; });
+  window.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=-(e.clientY/innerHeight-.5)*2;});
 
-  let t=0;
-  function animate(){
-    requestAnimationFrame(animate); t+=0.008;
-    camera.position.x+=(mx*0.35-camera.position.x)*0.025;
-    camera.position.y+=(my*0.25-camera.position.y)*0.025;
-    camera.lookAt(0,0,0);
-    ring.rotation.y=t*0.07; ring.rotation.x=Math.sin(t*0.05)*0.1;
-    dust.rotation.y=t*0.012; dust.rotation.z=t*0.005;
-    scene.children.forEach(o=>{ if(o.userData.by!==undefined) o.position.y=o.userData.by+Math.sin(t*o.userData.fs)*o.userData.fa; });
-    // Animate dust
-    const dp2=dg.attributes.position.array;
-    for(let i=0;i<400;i++){ dp2[i*3+1]+=dv[i]*0.25; if(dp2[i*3+1]>5)dp2[i*3+1]=-5; }
+  let tt=0;
+  function loop(){
+    requestAnimationFrame(loop);tt+=.007;
+    cam.position.x+=(mx*.38-cam.position.x)*.022;cam.position.y+=(my*.28-cam.position.y)*.022;cam.lookAt(0,0,0);
+    ring1.rotation.y=tt*.06;ring1.rotation.x=Math.sin(tt*.04)*.1;
+    ring2.rotation.y=-tt*.04;ring2.rotation.z=Math.sin(tt*.03)*.08;
+    dust.rotation.y=tt*.012;
+    sc.children.forEach(o=>{if(o.userData.by!==undefined)o.position.y=o.userData.by+Math.sin(tt*o.userData.fs)*o.userData.fa;});
+    const da=dg.attributes.position.array;
+    for(let i=0;i<600;i++){da[i*3+1]+=dv[i]*.22;if(da[i*3+1]>5.5)da[i*3+1]=-5.5;}
     dg.attributes.position.needsUpdate=true;
-    renderer.render(scene,camera);
+    rdr.render(sc,cam);
   }
-  animate();
-  window.addEventListener('resize',()=>{ camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth,window.innerHeight); });
+  loop();
+  window.addEventListener('resize',()=>{cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();rdr.setSize(innerWidth,innerHeight);});
 })();
 
-// ══ SCROLL ══════════════════════════════════
+// ══ SCROLL ══
 window.addEventListener('scroll',()=>{
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  document.getElementById('progress-bar').style.transform=`scaleX(${window.scrollY/h})`;
-  document.getElementById('nav').classList.toggle('solid',window.scrollY>80);
-  // Reveal
-  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight*0.88) el.classList.add('up');
-  });
-  // Stat counters
-  document.querySelectorAll('.stat-num[data-target]').forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight*0.9 && !el.dataset.done){
-      el.dataset.done='1';
-      const target=+el.dataset.target;
-      let cur2=0; const step=target/80;
-      const iv=setInterval(()=>{
-        cur2=Math.min(target,cur2+step);
-        el.textContent=Math.round(cur2).toLocaleString()+(target>=1000?'+':'+');
-        if(cur2>=target)clearInterval(iv);
-      },18);
+  const h=document.documentElement.scrollHeight-innerHeight;
+  document.getElementById('pgbar').style.transform=`scaleX(${scrollY/h})`;
+  document.getElementById('nav').classList.toggle('solid',scrollY>80);
+  document.querySelectorAll('.rev,.rev-l,.rev-r').forEach(el=>{if(el.getBoundingClientRect().top<innerHeight*.88)el.classList.add('up');});
+  document.querySelectorAll('.stat-n[data-t]').forEach(el=>{
+    if(el.getBoundingClientRect().top<innerHeight*.9&&!el.dataset.done){
+      el.dataset.done='1';const target=+el.dataset.t;let c=0;const step=target/80;
+      const iv=setInterval(()=>{c=Math.min(target,c+step);el.textContent=Math.round(c).toLocaleString()+(target>=100?'+':'');if(c>=target)clearInterval(iv);},18);
     }
   });
 });
-// Initial check
-setTimeout(()=>document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>{ if(el.getBoundingClientRect().top<window.innerHeight*0.95)el.classList.add('up'); }),2500);
+setTimeout(()=>document.querySelectorAll('.rev,.rev-l,.rev-r').forEach(el=>{if(el.getBoundingClientRect().top<innerHeight*.95)el.classList.add('up');}),2500);
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
 
-function scrollToId(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
-
-// ══ AUDIO ══════════════════════════════════
+// ══ AUDIO ══
 function initAudio(){
   if(audioCtx)return;
   try{
     audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-    const sr=audioCtx.sampleRate,buf=audioCtx.createBuffer(2,sr*5,sr);
-    for(let c=0;c<2;c++){ const d=buf.getChannelData(c); for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1; }
-    const src=audioCtx.createBufferSource(); src.buffer=buf; src.loop=true;
-    const lp=audioCtx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=600;
-    const hp=audioCtx.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=50;
-    gainNode=audioCtx.createGain(); gainNode.gain.value=0;
-    src.connect(lp);lp.connect(hp);hp.connect(gainNode);gainNode.connect(audioCtx.destination);
-    src.start();
+    const sr=audioCtx.sampleRate,buf=audioCtx.createBuffer(2,sr*6,sr);
+    for(let c=0;c<2;c++){const d=buf.getChannelData(c);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;}
+    const src=audioCtx.createBufferSource();src.buffer=buf;src.loop=true;
+    const lp=audioCtx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=700;
+    const hp=audioCtx.createBiquadFilter();hp.type='highpass';hp.frequency.value=60;
+    gainNode=audioCtx.createGain();gainNode.gain.value=0;
+    src.connect(lp);lp.connect(hp);hp.connect(gainNode);gainNode.connect(audioCtx.destination);src.start();
   }catch(e){}
 }
 function toggleAudio(){
-  initAudio(); muted=!muted;
-  if(gainNode)gainNode.gain.setTargetAtTime(muted?0:0.06,audioCtx.currentTime,0.5);
-  document.getElementById('audioIcon').innerHTML=muted
-    ?`<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>`
-    :`<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>`;
+  initAudio();muted=!muted;
+  if(gainNode)gainNode.gain.setTargetAtTime(muted?0:.065,audioCtx.currentTime,.5);
+  document.getElementById('aIcon').innerHTML=muted
+    ?'<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>'
+    :'<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
 }
+function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
 
-// ══ MOBILE NAV ══════════════════════════════
-function toggleMobile(){
-  document.getElementById('mobileNav').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('active');
-}
+// ══ STATS ══
+(function(){
+  const data=[{n:5000,l:'Years of History'},{n:255,l:'Ancient Pyramids'},{n:500,l:'Ethnic Groups'},{n:400,l:'Languages Spoken'},{n:3000,l:'Archaeological Sites'}];
+  const wrap=document.getElementById('statsTicker');
+  data.forEach(d=>{
+    const el=document.createElement('div');el.className='stat-block';
+    el.innerHTML=`<span class="stat-n" data-t="${d.n}">0</span><span class="stat-l">${d.l}</span>`;
+    wrap.appendChild(el);
+  });
+})();
 
-// ══ TIMELINE ══════════════════════════════
-(function buildTimeline(){
-  const nav=document.getElementById('timelineNav');
-  const cards=document.getElementById('timelineCards');
-  const bg=document.getElementById('tNavBg');
-
-  // Build nav pills
-  ERAS.forEach((era,i)=>{
-    const btn=document.createElement('div');
-    btn.className='t-nav-btn'+(i===0?' active':'');
-    btn.textContent=era.period;
-    btn.onclick=()=>{
-      document.querySelectorAll('.t-nav-btn').forEach((b,j)=>{ b.classList.toggle('active',j===i); });
-      moveBg(i);
-      const card=cards.children[i];
-      if(card)card.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+// ══ TIMELINE ══
+(function(){
+  const nav=document.getElementById('eraNv'),scroll=document.getElementById('tlScroll'),bg=document.getElementById('eraBg');
+  ERAS.forEach((e,i)=>{
+    const btn=document.createElement('div');btn.className='era-btn'+(i===0?' active':'');
+    btn.textContent=e.period;btn.onclick=()=>{
+      document.querySelectorAll('.era-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+      moveBg(i);scroll.children[i]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
     };
     nav.insertBefore(btn,bg);
   });
   function moveBg(i){
-    const btns=document.querySelectorAll('.t-nav-btn');
+    const btns=document.querySelectorAll('.era-btn');
     if(!btns[i])return;
-    const navR=nav.getBoundingClientRect(), btnR=btns[i].getBoundingClientRect();
-    bg.style.left=(btnR.left-navR.left)+'px';
-    bg.style.width=btnR.width+'px';
-    bg.style.top='0px';
-    bg.style.height='100%';
+    const nr=nav.getBoundingClientRect(),br=btns[i].getBoundingClientRect();
+    bg.style.left=(br.left-nr.left)+'px';bg.style.width=br.width+'px';bg.style.top='0';bg.style.height='100%';
   }
-  setTimeout(()=>moveBg(0),100);
-
-  // Build cards
-  ERAS.forEach(era=>{
-    const c=document.createElement('div');
-    c.className='era-card';
-    c.innerHTML=`
-      <img class="era-card-img" src="${era.img}" alt="${era.title}" loading="lazy"/>
-      <div class="era-card-overlay"></div>
-      <div class="era-color-accent" style="background:linear-gradient(90deg,transparent,${era.color},transparent)"></div>
-      <div class="era-card-content">
-        <div class="era-period">
-          <span class="era-period-dot" style="background:${era.color}"></span>
-          <span style="color:${era.color}">${era.period}</span>
-          <span style="margin-left:4px;opacity:0.5">${era.icon}</span>
-        </div>
-        <div class="era-name">${era.title}</div>
-        <div class="era-subtitle" style="color:${era.color}">${era.sub}</div>
-        <div class="era-desc">${era.desc}</div>
-        <div class="era-tags">
-          ${era.facts.map(f=>`<span class="era-tag" style="background:${era.color}18;color:${era.color};border:1px solid ${era.color}30">${f}</span>`).join('')}
-        </div>
-      </div>
-    `;
-    cards.appendChild(c);
+  setTimeout(()=>moveBg(0),150);
+  ERAS.forEach(e=>{
+    const c=document.createElement('div');c.className='era-card';
+    c.innerHTML=`<img class="era-card-img" src="${e.img}" alt="${e.title}" loading="lazy"/>
+    <div class="era-card-overlay"></div>
+    <div class="era-accent" style="background:linear-gradient(90deg,transparent,${e.color},transparent)"></div>
+    <div class="era-content">
+      <div class="era-yr"><span class="era-dot" style="background:${e.color}"></span><span style="color:${e.color}">${e.period}</span><span style="opacity:.4;margin-left:4px">${e.icon}</span></div>
+      <div class="era-name">${e.title}</div>
+      <div class="era-sub" style="color:${e.color}">${e.sub}</div>
+      <div class="era-desc">${e.desc}</div>
+      <div class="era-tags">${e.facts.map(f=>`<span class="era-tag" style="background:${e.color}18;color:${e.color};border:1px solid ${e.color}2A">${f}</span>`).join('')}</div>
+    </div>`;
+    scroll.appendChild(c);
   });
-  const spacer=document.createElement('div');
-  spacer.style.cssText='flex-shrink:0;width:3rem';
-  cards.appendChild(spacer);
-
-  // Scroll to update active nav pill
-  cards.addEventListener('scroll',()=>{
-    const w=cards.clientWidth;
-    const idx=Math.round(cards.scrollLeft/(320+24));
-    document.querySelectorAll('.t-nav-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
-    moveBg(idx);
+  const sp=document.createElement('div');sp.style.cssText='flex-shrink:0;width:3rem';scroll.appendChild(sp);
+  scroll.addEventListener('scroll',()=>{
+    const idx=Math.round(scroll.scrollLeft/(380+24));
+    document.querySelectorAll('.era-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));moveBg(idx);
   });
 })();
 
-// ══ MAP ══════════════════════════════════
-(function buildMap(){
-  const beaconWrap=document.getElementById('mapBeacons');
-  const locCardsWrap=document.getElementById('locCards');
-
-  LOCATIONS.forEach(loc=>{
-    // Beacon
-    const b=document.createElement('div');
-    b.className='beacon'; b.style.cssText=`left:${loc.x}%;top:${loc.y}%`;
-    b.innerHTML=`
-      <div class="beacon-pulse" style="width:30px;height:30px;background:${loc.color}30;border:1px solid ${loc.color}60"></div>
-      <div class="beacon-pulse" style="width:30px;height:30px;background:${loc.color}15;border:1px solid ${loc.color}35;animation-delay:0.8s"></div>
-      <div class="beacon-core" style="background:${loc.color};box-shadow:0 0 10px ${loc.color},0 0 20px ${loc.color}60"></div>
-      <div class="beacon-label">${loc.name}</div>
-    `;
-    b.addEventListener('click',()=>selectLoc(loc.id));
-    beaconWrap.appendChild(b);
-
-    // Location card
-    const card=document.createElement('div');
-    card.className='loc-card'; card.id='loc-'+loc.id;
-    card.innerHTML=`
-      <div style="overflow:hidden"><img class="loc-card-img" src="${loc.img}" alt="${loc.name}" loading="lazy"/></div>
-      <div class="loc-card-body">
-        <div style="height:2px;background:linear-gradient(90deg,${loc.color},transparent);margin-bottom:10px;border-radius:1px"></div>
-        <div class="loc-card-name">${loc.name}</div>
-        <div class="loc-card-ar" style="color:${loc.color}">${loc.ar}</div>
-        <div class="loc-card-period" style="color:${loc.color}90">${loc.period}</div>
-        <div class="loc-card-desc">${loc.desc}</div>
-      </div>
-    `;
-    card.addEventListener('click',()=>selectLoc(loc.id));
-    locCardsWrap.appendChild(card);
+// ══ MAP ══
+(function(){
+  const bw=document.getElementById('mapBcns'),lc=document.getElementById('locCards');
+  LOCS.forEach(l=>{
+    const b=document.createElement('div');b.className='bcn';b.style.cssText=`left:${l.x}%;top:${l.y}%`;
+    b.innerHTML=`<div class="bcn-ring" style="width:28px;height:28px;background:${l.c}28;border:1px solid ${l.c}55"></div>
+    <div class="bcn-ring" style="width:28px;height:28px;background:${l.c}15;border:1px solid ${l.c}35;animation-delay:.9s"></div>
+    <div class="bcn-core" style="background:${l.c};box-shadow:0 0 10px ${l.c},0 0 20px ${l.c}60"></div>
+    <div class="bcn-lbl">${l.name}</div>`;
+    b.addEventListener('click',()=>selLoc(l.id));bw.appendChild(b);
+    const card=document.createElement('div');card.className='loc-card';card.id='lc-'+l.id;
+    card.innerHTML=`<div style="overflow:hidden;max-height:110px"><img class="loc-card-img" src="${l.img}" alt="${l.name}" loading="lazy"/></div>
+    <div class="loc-body">
+      <div class="loc-bar" style="background:linear-gradient(90deg,${l.c},transparent)"></div>
+      <div class="loc-name">${l.name}</div>
+      <div class="loc-ar" style="color:${l.c}">${l.ar}</div>
+      <div class="loc-per" style="color:${l.c}90">${l.period}</div>
+      <div class="loc-desc">${l.desc}</div>
+    </div>`;
+    card.addEventListener('click',()=>selLoc(l.id));lc.appendChild(card);
   });
-
-  // Select first by default
-  setTimeout(()=>selectLoc('meroe'),3000);
+  setTimeout(()=>selLoc('meroe'),3200);
 })();
-
-function selectLoc(id){
-  if(activeLocId===id) return;
-  activeLocId=id;
-  document.querySelectorAll('.loc-card').forEach(c=>c.classList.toggle('active',c.id==='loc-'+id));
+function selLoc(id){
+  if(activeLoc===id)return;activeLoc=id;
+  document.querySelectorAll('.loc-card').forEach(c=>c.classList.toggle('on',c.id==='lc-'+id));
 }
 
-// ══ GALLERY ══════════════════════════════
-(function buildGallery(){
-  const grid=document.getElementById('galleryGrid');
-  const filterWrap=document.getElementById('galleryFilter');
-
-  // Collect categories
-  const cats=['All',...new Set(GALLERY_ITEMS.map(i=>i.cat))];
-  cats.forEach(cat=>{
-    const btn=document.createElement('button');
-    btn.className='filter-btn'+(cat==='All'?' on':'');
-    btn.textContent=cat;
-    btn.onclick=()=>{
-      galleryFilter=cat;
-      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('on',b.textContent===cat));
-      renderGallery();
-    };
-    filterWrap.appendChild(btn);
+// ══ GALLERY ══
+(function(){
+  const gf=document.getElementById('galFilter');
+  const cats=['All',...new Set(GAL.map(i=>i.cat))];
+  cats.forEach(c=>{
+    const btn=document.createElement('button');btn.className='fil-btn'+(c==='All'?' on':'');
+    btn.textContent=c;btn.onclick=()=>{galFil=c;document.querySelectorAll('.fil-btn').forEach(b=>b.classList.toggle('on',b.textContent===c));renderGal();};
+    gf.appendChild(btn);
   });
-  renderGallery();
+  renderGal();
 })();
-
-function renderGallery(){
-  const grid=document.getElementById('galleryGrid');
-  grid.innerHTML='';
-  const filtered=galleryFilter==='All'?GALLERY_ITEMS:GALLERY_ITEMS.filter(i=>i.cat===galleryFilter);
-  filtered.forEach((item,i)=>{
-    const div=document.createElement('div');
-    div.className='g-item';
-    div.innerHTML=`
-      <img src="${item.img}" alt="${item.title}" loading="lazy"/>
-      <div class="g-item-overlay">
-        <div class="g-item-cat">${item.cat} · ${item.period}</div>
-        <div class="g-item-title">${item.title}</div>
-      </div>
-      <div class="g-zoom">⊕</div>
-    `;
-    div.style.animationDelay=i*0.05+'s';
-    div.addEventListener('click',()=>openLb(item));
-    grid.appendChild(div);
+function renderGal(){
+  const g=document.getElementById('galGrid');g.innerHTML='';
+  (galFil==='All'?GAL:GAL.filter(i=>i.cat===galFil)).forEach((item,i)=>{
+    const d=document.createElement('div');d.className='g-item';
+    d.innerHTML=`<img src="${item.img}" alt="${item.title}" loading="lazy"/>
+    <div class="g-over"><div class="g-cat">${item.cat} · ${item.period}</div><div class="g-title">${item.title}</div></div>
+    <div class="g-zoom">⊕</div>`;
+    d.addEventListener('click',()=>openLb(item));g.appendChild(d);
   });
 }
-
-// ══ LIGHTBOX ══════════════════════════════
 function openLb(item){
   document.getElementById('lbImg').src=item.img;
   document.getElementById('lbCat').textContent=item.cat;
@@ -2037,72 +1745,76 @@ function openLb(item){
   document.body.style.overflow='hidden';
 }
 function closeLb(e){
-  if(e&&e.target!==document.getElementById('lb')&&!e.target.classList.contains('lb-close'))return;
-  document.getElementById('lb').classList.remove('show');
-  document.body.style.overflow='';
+  if(e&&e.target!==document.getElementById('lb')&&!e.target.classList.contains('lb-x'))return;
+  document.getElementById('lb').classList.remove('show');document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{ if(e.key==='Escape'){document.getElementById('lb').classList.remove('show');document.getElementById('article-modal').classList.remove('show');document.body.style.overflow='';} });
 
-// ══ ARTICLES ══════════════════════════════
-(function buildArticles(){
-  const grid=document.getElementById('articlesGrid');
-  ARTICLES_DATA.forEach(a=>{
-    const card=document.createElement('div');
-    card.className='article-card';
-    card.innerHTML=`
-      <img class="article-img" src="${a.img}" alt="${a.title}" loading="lazy"/>
-      <div class="article-body">
-        <div class="article-tag">${a.tag}</div>
-        <h3 class="article-title">${a.title}</h3>
-        <p class="article-excerpt">${a.excerpt}</p>
-        <div class="article-meta">
-          <span>${a.date} · ${a.readTime} read</span>
-          <span class="article-read">Read Article →</span>
-        </div>
+// ══ FLIP CARDS ══
+(function(){
+  const g=document.getElementById('flipGrid');
+  FLIP_DATA.forEach(f=>{
+    const c=document.createElement('div');c.className='flip-card';
+    c.innerHTML=`<div class="flip-inner">
+      <div class="flip-front"><img src="${f.img}" alt="${f.name}" loading="lazy"/>
+        <div class="flip-front-label"><div class="flip-front-cat">${f.cat}</div><div class="flip-front-name">${f.name}</div></div>
       </div>
-    `;
-    card.addEventListener('click',()=>openArticle(a));
-    grid.appendChild(card);
+      <div class="flip-back">
+        <div class="flip-back-era">${f.era} · ${f.cat}</div>
+        <div class="flip-back-title">${f.name}</div>
+        <div class="flip-back-text">${f.text}</div>
+        <button class="flip-back-btn" onclick="go('articles')">Read Full Article →</button>
+      </div>
+    </div>`;
+    g.appendChild(c);
   });
 })();
 
-function openArticle(a){
-  const modal=document.getElementById('article-modal');
-  document.getElementById('articleModalContent').innerHTML=`
-    <img class="article-modal-hero" src="${a.img}" alt="${a.title}"/>
-    <div class="article-modal-tag">${a.tag} · ${a.date} · ${a.readTime} read</div>
-    <h1 class="article-modal-title">${a.title}</h1>
-    <div class="article-modal-body">${a.content}</div>
+// ══ ARTICLES ══
+(function(){
+  const g=document.getElementById('artGrid');
+  ARTS.forEach(a=>{
+    const c=document.createElement('div');c.className='art-card';
+    c.innerHTML=`<img class="art-img" src="${a.img}" alt="${a.title}" loading="lazy"/>
+    <div class="art-body">
+      <div class="art-tag">${a.tag}</div>
+      <h3 class="art-title">${a.title}</h3>
+      <p class="art-exc">${a.excerpt}</p>
+      <div class="art-meta"><span>${a.date} · ${a.rt}</span><span class="art-read">Read Article →</span></div>
+    </div>`;
+    c.addEventListener('click',()=>openArt(a));g.appendChild(c);
+  });
+})();
+function openArt(a){
+  const m=document.getElementById('art-modal');
+  document.getElementById('amContent').innerHTML=`
+    <img class="am-hero" src="${a.img}" alt="${a.title}"/>
+    <div class="am-tag">${a.tag} · ${a.date} · ${a.rt}</div>
+    <h1 class="am-title">${a.title}</h1>
+    <div class="am-body">${a.body}</div>
   `;
-  modal.classList.add('show');
-  document.body.style.overflow='hidden';
-  modal.scrollTop=0;
+  m.classList.add('show');document.body.style.overflow='hidden';m.scrollTop=0;
 }
-function closeArticle(){
-  document.getElementById('article-modal').classList.remove('show');
-  document.body.style.overflow='';
-}
+function closeArt(){document.getElementById('art-modal').classList.remove('show');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('lb').classList.remove('show');document.getElementById('art-modal').classList.remove('show');document.body.style.overflow='';}});
 
-// ══ MARQUEE ══════════════════════════════
-(function buildMarquee(){
-  const m=document.getElementById('langMarquee');
-  const words=[...MARQUEE_WORDS,...MARQUEE_WORDS]; // duplicate for seamless loop
-  words.forEach(w=>{
-    const span=document.createElement('span');
-    span.className='lang-word '+w.cls;
-    span.textContent=w.text;
-    m.appendChild(span);
+// ══ MARQUEE ══
+(function(){
+  [document.getElementById('mq1'),document.getElementById('mq2')].forEach((el,ri)=>{
+    const words=ri===0?[...MQ1,...MQ1]:[...MQ2,...MQ2];
+    words.forEach((w,i)=>{
+      const sp=document.createElement('span');sp.className='mw'+(w.match(/[\u0600-\u06FF]/)?' ar':w.match(/[\u4E00-\u9FFF]/)?' zh':'')+(i%7===0?' gold':'');
+      sp.textContent=w;el.appendChild(sp);
+    });
   });
 })();
 
-// ══ NEWSLETTER ══════════════════════════════
-function subscribeNewsletter(){
-  const inp=document.getElementById('emailInput');
-  if(!inp.value||!inp.value.includes('@')){ inp.style.borderColor='rgba(180,80,80,0.5)'; return; }
-  inp.style.borderColor='rgba(80,180,80,0.5)';
-  inp.value='';
+// ══ NEWSLETTER ══
+function nlSub(){
+  const inp=document.getElementById('nlEmail');
+  if(!inp.value||!inp.value.includes('@')){inp.style.borderColor='rgba(180,80,80,.5)';return;}
+  inp.style.borderColor='rgba(80,180,80,.5)';inp.value='';
   inp.placeholder='Thank you! You\'re subscribed ✓';
-  setTimeout(()=>{ inp.placeholder='Your email address'; inp.style.borderColor=''; },3000);
+  setTimeout(()=>{inp.placeholder='Your email address';inp.style.borderColor='';},3000);
 }
 </script>
 </body>
